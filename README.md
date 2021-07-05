@@ -185,12 +185,25 @@ From typical functions, it has been used different interactions with smart contr
 
 ### Protocol Labs
 
+For this sponsor, they are used two products:
+- "js-ipfs" as "decentralized database", where are stored additional informations about "Event", "Ticket Category" and "Ticket"
+- Pinata, whose role is integration with Rarible, so IPFS data such as NFT (ticket) image and NFT basic could display on Rarible portal. For this purpose, they are used next:
+  * Dynamically image generation that depends from token, and upload that image with pinFileToIPFS
+  * Upload additional informations about token with pinJSONToIPFS
+ 
 
 ## Built With
 
 This project is built with:
-* [Kotlin](https://kotlinlang.org/)
-* [RAMP Network](https://ramp.network/)
+* [ReactJS](https://reactjs.org/)
+* [Solidity](https://soliditylang.org/)
+* [Rarible](https://rarible.org/)
+* [The Graph](https://thegraph.com/)
+* [MetaMask] (https://metamask.io/)
+* [IPFS] (https:///ipfs.io)
+* [Pinata] (https://pinata.cloud/)
+* [Truffle and Ganache] (https://www.trufflesuite.com/)
+* [Ethers.js] (https://docs.ethers.io/v5/)
 * [Firebase](https://firebase.google.com/)
 
 <!-- GETTING STARTED -->
