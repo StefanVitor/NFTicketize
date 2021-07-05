@@ -1,0 +1,1065 @@
+{
+  "contractName": "Mint1155Validator",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/D/Posao - Stefan/Stefan - razno/Gitcoin/Hackathon - Rarible/Nfticketizegraph/contracts/erc-1155/Mint1155Validator.sol\":\"Mint1155Validator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/D/Posao - Stefan/Stefan - razno/Gitcoin/Hackathon - Rarible/Nfticketizegraph/contracts/erc-1155/Mint1155Validator.sol\":{\"keccak256\":\"0x292608b34ec8f76ae6bb8c69f401b2a94fa0830a7e7e1ef53e13768785ee27c4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c3ebc0f72f66f02a6ce454cac8e64ade08f0ea8049a96e781ad22e674946d1a5\",\"dweb:/ipfs/QmTiFDq88GSepN3jGCVbUXwgowjMmcQ596Afr2c8tTjtqz\"]},\"/D/Posao - Stefan/Stefan - razno/Gitcoin/Hackathon - Rarible/Nfticketizegraph/contracts/erc-1271/ERC1271.sol\":{\"keccak256\":\"0x20b428f91fe470d6cb890b1734b4769281da2e31076063b985eeb21b94067692\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://eb16e4b1427f78d3c19316bb34861cddb0a32e18c1fbc84ee57b46bb3a28845e\",\"dweb:/ipfs/QmexpPMPDcxYuAHzaXrFnYbPV9bb6zfFFarhWLKoa1YvS6\"]},\"/D/Posao - Stefan/Stefan - razno/Gitcoin/Hackathon - Rarible/Nfticketizegraph/contracts/erc-1271/ERC1271Validator.sol\":{\"keccak256\":\"0xfef1de695f587d6901fd54a1b54465bc853329b94c09a65300430dcee0c6a41a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://065e8faffecccbd105929d88a6b9312aeb675b8882541e2eac1cef06a059aaee\",\"dweb:/ipfs/QmfJdjKZDCpkXADXH6xrZ1fCu44oB2hoKGNZkKGZYTZj6M\"]},\"@openzeppelin/contracts-upgradeable/cryptography/ECDSAUpgradeable.sol\":{\"keccak256\":\"0xe348c45df01e0705c50ede5063d77111a996722ffb83f0a22979338a32b06887\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://afd37f4b5b678753c3e4ac2f8b83f921a8fe0adb456600e4408ee8e26ccbb09c\",\"dweb:/ipfs/QmYfP67Yx8nQXFKBrWjhmG2htgbT5LRSymx7gVt4JRZ2j7\"]},\"@openzeppelin/contracts-upgradeable/drafts/EIP712Upgradeable.sol\":{\"keccak256\":\"0x6cd0bc8c149150614ca3d4a3d3d21f844a0ab3032625f34fcfcf1c2c8b351638\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aee85054062c8bcc9fdbdfbc92a459e04b4b9437b04c98b820d0772c11aa7268\",\"dweb:/ipfs/QmQZLXFFGNh2qni7fJp9maYU1XoaP77sMBVY3MnFb2Cyed\"]},\"@openzeppelin/contracts-upgradeable/proxy/Initializable.sol\":{\"keccak256\":\"0xd8e4eb08dcc1d1860fb347ba5ffd595242b9a1b66d49a47f2b4cb51c3f35017e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7dbc89479d30592e82442edc38053b380f611037a5e6ceafc7bf57a7aa1f0305\",\"dweb:/ipfs/QmcdYtt56WmjeYvsFjK69FnahnAriw88VzY3XRZwXkQKKN\"]},\"@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol\":{\"keccak256\":\"0xfc5ea91fa9ceb1961023b2a6c978b902888c52b90847ac7813fe3b79524165f6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a6b81dcc816857a9d981386f6d8de49198420ee41cdc0ecade366ab412174d03\",\"dweb:/ipfs/QmV2vznMT6m9qo3pFMAWi3Nz3UDhwesgwFxeXe6Tod3v8A\"]},\"@rarible/lazy-mint/contracts/erc-1155/LibERC1155LazyMint.sol\":{\"keccak256\":\"0x9e878eabebd94add2651ce3a03c0a6e4d65c288893e642882186ca7a9e7d9541\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://39fa8ae2f21c5915861bbfd117c5ca1948405733c801a84f9d16845e35f74198\",\"dweb:/ipfs/QmS33E8T8tJodVkRJBMq8XvN4rN6i5wzDLhj7DCZrXXTnr\"]},\"@rarible/royalties/contracts/LibPart.sol\":{\"keccak256\":\"0xd0123f7411573a6a7e1527e0d3901913d7642e504ff240d5b7c5b76a28587def\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://447b449f7f986ecfdea10cbc96ae276877102866353b4f8410fec0bdb357d5ae\",\"dweb:/ipfs/QmatbYwMc1UXCGGH1D9fvgLbLPNdgzBVafYW84B1nJJiRr\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212201fbc22601574782bdbb5f14003f091a3e9947c59ac7f6f8f7d29aa29e1bf943264736f6c63430007060033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212201fbc22601574782bdbb5f14003f091a3e9947c59ac7f6f8f7d29aa29e1bf943264736f6c63430007060033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "181:358:2:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "181:358:2:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity >=0.6.2 <0.8.0;\n\nimport \"../erc-1271/ERC1271Validator.sol\";\nimport \"@rarible/lazy-mint/contracts/erc-1155/LibERC1155LazyMint.sol\";\n\ncontract Mint1155Validator is ERC1271Validator {\n    function __Mint1155Validator_init_unchained() internal initializer {\n        __EIP712_init_unchained(\"Mint1155\", \"1\");\n    }\n\n    function validate(address account, bytes32 hash, bytes memory signature) internal view {\n        validate1271(account, hash, signature);\n    }\n    uint256[50] private __gap;\n}\n",
+  "sourcePath": "D:/Posao - Stefan/Stefan - razno/Gitcoin/Hackathon - Rarible/Nfticketizegraph/contracts/erc-1155/Mint1155Validator.sol",
+  "ast": {
+    "absolutePath": "/D/Posao - Stefan/Stefan - razno/Gitcoin/Hackathon - Rarible/Nfticketizegraph/contracts/erc-1155/Mint1155Validator.sol",
+    "exportedSymbols": {
+      "AddressUpgradeable": [
+        2558
+      ],
+      "ECDSAUpgradeable": [
+        433
+      ],
+      "EIP712Upgradeable": [
+        593
+      ],
+      "ERC1271": [
+        210
+      ],
+      "ERC1271Validator": [
+        279
+      ],
+      "Initializable": [
+        1101
+      ],
+      "LibERC1155LazyMint": [
+        3524
+      ],
+      "LibPart": [
+        3701
+      ],
+      "Mint1155Validator": [
+        175
+      ]
+    },
+    "id": 176,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 139,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.6",
+          ".2",
+          "<",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:31:2"
+      },
+      {
+        "absolutePath": "/D/Posao - Stefan/Stefan - razno/Gitcoin/Hackathon - Rarible/Nfticketizegraph/contracts/erc-1271/ERC1271Validator.sol",
+        "file": "../erc-1271/ERC1271Validator.sol",
+        "id": 140,
+        "nodeType": "ImportDirective",
+        "scope": 176,
+        "sourceUnit": 280,
+        "src": "66:42:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@rarible/lazy-mint/contracts/erc-1155/LibERC1155LazyMint.sol",
+        "file": "@rarible/lazy-mint/contracts/erc-1155/LibERC1155LazyMint.sol",
+        "id": 141,
+        "nodeType": "ImportDirective",
+        "scope": 176,
+        "sourceUnit": 3525,
+        "src": "109:70:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 142,
+              "name": "ERC1271Validator",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 279,
+              "src": "211:16:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ERC1271Validator_$279",
+                "typeString": "contract ERC1271Validator"
+              }
+            },
+            "id": 143,
+            "nodeType": "InheritanceSpecifier",
+            "src": "211:16:2"
+          }
+        ],
+        "contractDependencies": [
+          279,
+          593,
+          1101
+        ],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 175,
+        "linearizedBaseContracts": [
+          175,
+          279,
+          593,
+          1101
+        ],
+        "name": "Mint1155Validator",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 153,
+              "nodeType": "Block",
+              "src": "301:57:2",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "hexValue": "4d696e7431313535",
+                        "id": 149,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "335:10:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_08167dbffed14bc23a2b328ced59a6370a82faa4bd594543394fcfed96746173",
+                          "typeString": "literal_string \"Mint1155\""
+                        },
+                        "value": "Mint1155"
+                      },
+                      {
+                        "hexValue": "31",
+                        "id": 150,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "347:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_c89efdaa54c0f20c7adf612882df0950f5a951637e0307cdcb4c672f298b8bc6",
+                          "typeString": "literal_string \"1\""
+                        },
+                        "value": "1"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_stringliteral_08167dbffed14bc23a2b328ced59a6370a82faa4bd594543394fcfed96746173",
+                          "typeString": "literal_string \"Mint1155\""
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_c89efdaa54c0f20c7adf612882df0950f5a951637e0307cdcb4c672f298b8bc6",
+                          "typeString": "literal_string \"1\""
+                        }
+                      ],
+                      "id": 148,
+                      "name": "__EIP712_init_unchained",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 500,
+                      "src": "311:23:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (string memory,string memory)"
+                      }
+                    },
+                    "id": 151,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "311:40:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 152,
+                  "nodeType": "ExpressionStatement",
+                  "src": "311:40:2"
+                }
+              ]
+            },
+            "id": 154,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 146,
+                "modifierName": {
+                  "id": 145,
+                  "name": "initializer",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 1084,
+                  "src": "289:11:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "289:11:2"
+              }
+            ],
+            "name": "__Mint1155Validator_init_unchained",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 144,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "277:2:2"
+            },
+            "returnParameters": {
+              "id": 147,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "301:0:2"
+            },
+            "scope": 175,
+            "src": "234:124:2",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 169,
+              "nodeType": "Block",
+              "src": "451:55:2",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 164,
+                        "name": "account",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 156,
+                        "src": "474:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 165,
+                        "name": "hash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 158,
+                        "src": "483:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "id": 166,
+                        "name": "signature",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 160,
+                        "src": "489:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 163,
+                      "name": "validate1271",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 274,
+                      "src": "461:12:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$_t_address_$_t_bytes32_$_t_bytes_memory_ptr_$returns$__$",
+                        "typeString": "function (address,bytes32,bytes memory) view"
+                      }
+                    },
+                    "id": 167,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "461:38:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 168,
+                  "nodeType": "ExpressionStatement",
+                  "src": "461:38:2"
+                }
+              ]
+            },
+            "id": 170,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "validate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 161,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 156,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "382:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 155,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "382:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 158,
+                  "mutability": "mutable",
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "399:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 157,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "399:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 160,
+                  "mutability": "mutable",
+                  "name": "signature",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "413:22:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 159,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "413:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "381:55:2"
+            },
+            "returnParameters": {
+              "id": 162,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "451:0:2"
+            },
+            "scope": 175,
+            "src": "364:142:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 174,
+            "mutability": "mutable",
+            "name": "__gap",
+            "nodeType": "VariableDeclaration",
+            "scope": 175,
+            "src": "511:25:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_uint256_$50_storage",
+              "typeString": "uint256[50]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 171,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "511:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "id": 173,
+              "length": {
+                "hexValue": "3530",
+                "id": 172,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": true,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "519:2:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_rational_50_by_1",
+                  "typeString": "int_const 50"
+                },
+                "value": "50"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "511:11:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_uint256_$50_storage_ptr",
+                "typeString": "uint256[50]"
+              }
+            },
+            "visibility": "private"
+          }
+        ],
+        "scope": 176,
+        "src": "181:358:2"
+      }
+    ],
+    "src": "33:507:2"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/D/Posao - Stefan/Stefan - razno/Gitcoin/Hackathon - Rarible/Nfticketizegraph/contracts/erc-1155/Mint1155Validator.sol",
+      "exportedSymbols": {
+        "AddressUpgradeable": [
+          2558
+        ],
+        "ECDSAUpgradeable": [
+          433
+        ],
+        "EIP712Upgradeable": [
+          593
+        ],
+        "ERC1271": [
+          210
+        ],
+        "ERC1271Validator": [
+          279
+        ],
+        "Initializable": [
+          1101
+        ],
+        "LibERC1155LazyMint": [
+          3524
+        ],
+        "LibPart": [
+          3701
+        ],
+        "Mint1155Validator": [
+          175
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.6",
+            ".2",
+            "<",
+            "0.8",
+            ".0"
+          ]
+        },
+        "id": 139,
+        "name": "PragmaDirective",
+        "src": "33:31:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 280,
+          "absolutePath": "/D/Posao - Stefan/Stefan - razno/Gitcoin/Hackathon - Rarible/Nfticketizegraph/contracts/erc-1271/ERC1271Validator.sol",
+          "file": "../erc-1271/ERC1271Validator.sol",
+          "scope": 176,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 140,
+        "name": "ImportDirective",
+        "src": "66:42:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 3525,
+          "absolutePath": "@rarible/lazy-mint/contracts/erc-1155/LibERC1155LazyMint.sol",
+          "file": "@rarible/lazy-mint/contracts/erc-1155/LibERC1155LazyMint.sol",
+          "scope": 176,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 141,
+        "name": "ImportDirective",
+        "src": "109:70:2"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "contractDependencies": [
+            279,
+            593,
+            1101
+          ],
+          "contractKind": "contract",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            175,
+            279,
+            593,
+            1101
+          ],
+          "name": "Mint1155Validator",
+          "scope": 176
+        },
+        "children": [
+          {
+            "attributes": {},
+            "children": [
+              {
+                "attributes": {
+                  "name": "ERC1271Validator",
+                  "referencedDeclaration": 279,
+                  "type": "contract ERC1271Validator"
+                },
+                "id": 142,
+                "name": "UserDefinedTypeName",
+                "src": "211:16:2"
+              }
+            ],
+            "id": 143,
+            "name": "InheritanceSpecifier",
+            "src": "211:16:2"
+          },
+          {
+            "attributes": {
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "__Mint1155Validator_init_unchained",
+              "scope": 175,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 144,
+                "name": "ParameterList",
+                "src": "277:2:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 147,
+                "name": "ParameterList",
+                "src": "301:0:2"
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 1084,
+                      "type": "modifier ()",
+                      "value": "initializer"
+                    },
+                    "id": 145,
+                    "name": "Identifier",
+                    "src": "289:11:2"
+                  }
+                ],
+                "id": 146,
+                "name": "ModifierInvocation",
+                "src": "289:11:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_stringliteral_08167dbffed14bc23a2b328ced59a6370a82faa4bd594543394fcfed96746173",
+                                  "typeString": "literal_string \"Mint1155\""
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_c89efdaa54c0f20c7adf612882df0950f5a951637e0307cdcb4c672f298b8bc6",
+                                  "typeString": "literal_string \"1\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 500,
+                              "type": "function (string memory,string memory)",
+                              "value": "__EIP712_init_unchained"
+                            },
+                            "id": 148,
+                            "name": "Identifier",
+                            "src": "311:23:2"
+                          },
+                          {
+                            "attributes": {
+                              "hexvalue": "4d696e7431313535",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "token": "string",
+                              "type": "literal_string \"Mint1155\"",
+                              "value": "Mint1155"
+                            },
+                            "id": 149,
+                            "name": "Literal",
+                            "src": "335:10:2"
+                          },
+                          {
+                            "attributes": {
+                              "hexvalue": "31",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "token": "string",
+                              "type": "literal_string \"1\"",
+                              "value": "1"
+                            },
+                            "id": 150,
+                            "name": "Literal",
+                            "src": "347:3:2"
+                          }
+                        ],
+                        "id": 151,
+                        "name": "FunctionCall",
+                        "src": "311:40:2"
+                      }
+                    ],
+                    "id": 152,
+                    "name": "ExpressionStatement",
+                    "src": "311:40:2"
+                  }
+                ],
+                "id": 153,
+                "name": "Block",
+                "src": "301:57:2"
+              }
+            ],
+            "id": 154,
+            "name": "FunctionDefinition",
+            "src": "234:124:2"
+          },
+          {
+            "attributes": {
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "validate",
+              "scope": 175,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "account",
+                      "scope": 170,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 155,
+                        "name": "ElementaryTypeName",
+                        "src": "382:7:2"
+                      }
+                    ],
+                    "id": 156,
+                    "name": "VariableDeclaration",
+                    "src": "382:15:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "hash",
+                      "scope": 170,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 157,
+                        "name": "ElementaryTypeName",
+                        "src": "399:7:2"
+                      }
+                    ],
+                    "id": 158,
+                    "name": "VariableDeclaration",
+                    "src": "399:12:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "signature",
+                      "scope": 170,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "bytes",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes"
+                        },
+                        "id": 159,
+                        "name": "ElementaryTypeName",
+                        "src": "413:5:2"
+                      }
+                    ],
+                    "id": 160,
+                    "name": "VariableDeclaration",
+                    "src": "413:22:2"
+                  }
+                ],
+                "id": 161,
+                "name": "ParameterList",
+                "src": "381:55:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 162,
+                "name": "ParameterList",
+                "src": "451:0:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                },
+                                {
+                                  "typeIdentifier": "t_bytes_memory_ptr",
+                                  "typeString": "bytes memory"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 274,
+                              "type": "function (address,bytes32,bytes memory) view",
+                              "value": "validate1271"
+                            },
+                            "id": 163,
+                            "name": "Identifier",
+                            "src": "461:12:2"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 156,
+                              "type": "address",
+                              "value": "account"
+                            },
+                            "id": 164,
+                            "name": "Identifier",
+                            "src": "474:7:2"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 158,
+                              "type": "bytes32",
+                              "value": "hash"
+                            },
+                            "id": 165,
+                            "name": "Identifier",
+                            "src": "483:4:2"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 160,
+                              "type": "bytes memory",
+                              "value": "signature"
+                            },
+                            "id": 166,
+                            "name": "Identifier",
+                            "src": "489:9:2"
+                          }
+                        ],
+                        "id": 167,
+                        "name": "FunctionCall",
+                        "src": "461:38:2"
+                      }
+                    ],
+                    "id": 168,
+                    "name": "ExpressionStatement",
+                    "src": "461:38:2"
+                  }
+                ],
+                "id": 169,
+                "name": "Block",
+                "src": "451:55:2"
+              }
+            ],
+            "id": 170,
+            "name": "FunctionDefinition",
+            "src": "364:142:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "__gap",
+              "scope": 175,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256[50]",
+              "visibility": "private"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "uint256[50]"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 171,
+                    "name": "ElementaryTypeName",
+                    "src": "511:7:2"
+                  },
+                  {
+                    "attributes": {
+                      "hexvalue": "3530",
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "token": "number",
+                      "type": "int_const 50",
+                      "value": "50"
+                    },
+                    "id": 172,
+                    "name": "Literal",
+                    "src": "519:2:2"
+                  }
+                ],
+                "id": 173,
+                "name": "ArrayTypeName",
+                "src": "511:11:2"
+              }
+            ],
+            "id": 174,
+            "name": "VariableDeclaration",
+            "src": "511:25:2"
+          }
+        ],
+        "id": 175,
+        "name": "ContractDefinition",
+        "src": "181:358:2"
+      }
+    ],
+    "id": 176,
+    "name": "SourceUnit",
+    "src": "33:507:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.6+commit.7338295f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-07-04T17:24:07.701Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

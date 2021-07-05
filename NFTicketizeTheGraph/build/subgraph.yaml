@@ -1,0 +1,35 @@
+specVersion: 0.0.2
+description: NFTicketize
+repository: https://github.com/StefanVitor/Nfticketizegraph
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: NFTicketize
+    network: ropsten
+    source:
+      address: "0x1E59293Db17204613F5f3A0a1f5e6be2F17C2d54"
+      abi: NFTicketize
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Event
+        - TicketCategory
+        - Ticket
+      abis:
+        - name: NFTicketize
+          file: NFTicketize\build\contracts\NFTicketize.json
+      eventHandlers:
+        - event: NewEvent(uint256,address,uint256,string)
+          handler: handleNewEvent
+        - event: NewTicketCategory(uint256,uint256,uint32,uint32,uint256,uint256,string)
+          handler: handleNewTicketCategory
+        - event: UpdateTicketCategory(uint256,uint256,uint32,uint32,uint256,uint256,string)
+          handler: handleUpdateTicketCategory
+        - event: NewTicket(uint256,uint256,uint256,uint32)
+          handler: handleNewTicket
+        - event: UpdateTicket(uint256,uint256,uint256,uint32)
+          handler: handleUpdateTicket
+      file: NFTicketize\NFTicketize.wasm

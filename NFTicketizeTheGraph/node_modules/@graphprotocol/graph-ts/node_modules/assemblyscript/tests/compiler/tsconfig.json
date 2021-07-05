@@ -1,0 +1,9 @@
+{
+  "extends": "../../std/assembly.json",
+  "compilerOptions": {
+    "module": "ES6"
+  },
+  "include": [
+    "./**/*.ts"
+  ]
+}

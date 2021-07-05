@@ -1,0 +1,10 @@
+{
+  "features": [
+    "threads"
+  ],
+  "asc_flags": [
+    "--memoryBase 8",
+    "--maximumMemory 10",
+    "--sharedMemory"
+  ]
+}

@@ -1,0 +1,3446 @@
+{
+  "contractName": "BeaconProxy",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "beacon",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "constructor"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"beacon\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"stateMutability\":\"payable\",\"type\":\"constructor\"},{\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"details\":\"This contract implements a proxy that gets the implementation address for each call from a {UpgradeableBeacon}. The beacon address is stored in storage slot `uint256(keccak256('eip1967.proxy.beacon')) - 1`, so that it doesn't conflict with the storage layout of the implementation behind the proxy. _Available since v3.4._\",\"kind\":\"dev\",\"methods\":{\"constructor\":{\"details\":\"Initializes the proxy with `beacon`. If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon. This will typically be an encoded function call, and allows initializating the storage of the proxy like a Solidity constructor. Requirements: - `beacon` must be a contract with the interface {IBeacon}.\"}},\"stateVariables\":{\"_BEACON_SLOT\":{\"details\":\"The storage slot of the UpgradeableBeacon contract which defines the implementation for this proxy. This is bytes32(uint256(keccak256('eip1967.proxy.beacon')) - 1)) and is validated in the constructor.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"@openzeppelin/contracts/proxy/BeaconProxy.sol\":\"BeaconProxy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/proxy/BeaconProxy.sol\":{\"keccak256\":\"0x5d454d98cadfb9ae490875140b97491dc65b4eaba343eb6ff668fe48d7e81c86\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6d050ffb4b19331322500085ad8f95e6d9b51e66efa1767b09e34746488b6736\",\"dweb:/ipfs/QmZpJzbDpDU4Hj6s6ryLSWWAHSMQa5VpycgUgw3QShum7f\"]},\"@openzeppelin/contracts/proxy/IBeacon.sol\":{\"keccak256\":\"0x77c167740c8227e2569064dabdb2d683800f409743bda1bab8d66d5a2dae3674\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://db67aa92e2fa0b00447b469ab9416584024092ff9fd0768d8f2a56b82f90a13a\",\"dweb:/ipfs/QmT39rVeCqKkniTVvPJjgFajmS5QbjE77xgrEVJeAw6VFA\"]},\"@openzeppelin/contracts/proxy/Proxy.sol\":{\"keccak256\":\"0x202faa683f33bdc2fdef9c4a75626058974c69b9bee9cb981b09549ce91f0938\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fd41e8534f6034e684c16243910ea689e340ff124ad248efca021d122a2c1a27\",\"dweb:/ipfs/QmVTW9DDnzE5Mgvc3r3ibGGU7eQQs6MQZUMgSFqwRQVLqk\"]},\"@openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0xf89f005a3d98f7768cdee2583707db0ac725cf567d455751af32ee68132f3db3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f963d438177764b5f43f637c02311c951c0f0025d12fe1ac7e62e295bf416c41\",\"dweb:/ipfs/QmcfVb9JsWrYeTwFUJsKVHpKB7EaWBKydAH9S4sKg2pzcK\"]}},\"version\":1}",
+  "bytecode": "0x6080604052604051610a33380380610a338339818101604052604081101561002657600080fd5b81019080805190602001909291908051604051939291908464010000000082111561005057600080fd5b8382019150602082018581111561006657600080fd5b825186600182028301116401000000008211171561008357600080fd5b8083526020830192505050908051906020019080838360005b838110156100b757808201518184015260208101905061009c565b50505050905090810190601f1680156100e45780820380516001836020036101000a031916815260200191505b5060405250505060017fa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d5160001c0360001b7fa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d5060001b1461014057fe5b610150828261015760201b60201c565b50506105fc565b61016a8261031d60201b6100371760201c565b6101bf576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260258152602001806109b46025913960400191505060405180910390fd5b6102528273ffffffffffffffffffffffffffffffffffffffff16635c60da1b6040518163ffffffff1660e01b815260040160206040518083038186803b15801561020857600080fd5b505afa15801561021c573d6000803e3d6000fd5b505050506040513d602081101561023257600080fd5b810190808051906020019092919050505061031d60201b6100371760201c565b6102a7576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260348152602001806109ff6034913960400191505060405180910390fd5b60007fa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d5060001b9050828155600082511115610318576103166102ed61033060201b60201c565b83604051806060016040528060218152602001610993602191396103c560201b61004a1760201c565b505b505050565b600080823b905060008111915050919050565b60006103406104ff60201b60201c565b73ffffffffffffffffffffffffffffffffffffffff16635c60da1b6040518163ffffffff1660e01b815260040160206040518083038186803b15801561038557600080fd5b505afa158015610399573d6000803e3d6000fd5b505050506040513d60208110156103af57600080fd5b8101908080519060200190929190505050905090565b60606103d68461031d60201b60201c565b61042b576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260268152602001806109d96026913960400191505060405180910390fd5b6000808573ffffffffffffffffffffffffffffffffffffffff16856040518082805190602001908083835b602083106104795780518252602082019150602081019050602083039250610456565b6001836020036101000a038019825116818451168082178552505050505050905001915050600060405180830381855af49150503d80600081146104d9576040519150601f19603f3d011682016040523d82523d6000602084013e6104de565b606091505b50915091506104f482828661053060201b60201c565b925050509392505050565b6000807fa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d5060001b9050805491505090565b60608315610540578290506105f5565b6000835111156105535782518084602001fd5b816040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825283818151815260200191508051906020019080838360005b838110156105ba57808201518184015260208101905061059f565b50505050905090810190601f1680156105e75780820380516001836020036101000a031916815260200191505b509250505060405180910390fd5b9392505050565b6103888061060b6000396000f3fe6080604052366100135761001161001d565b005b61001b61001d565b005b610025610178565b61003561003061017a565b610209565b565b600080823b905060008111915050919050565b606061005584610037565b6100aa576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602681526020018061032d6026913960400191505060405180910390fd5b6000808573ffffffffffffffffffffffffffffffffffffffff16856040518082805190602001908083835b602083106100f857805182526020820191506020810190506020830392506100d5565b6001836020036101000a038019825116818451168082178552505050505050905001915050600060405180830381855af49150503d8060008114610158576040519150601f19603f3d011682016040523d82523d6000602084013e61015d565b606091505b509150915061016d82828661022f565b925050509392505050565b565b60006101846102fb565b73ffffffffffffffffffffffffffffffffffffffff16635c60da1b6040518163ffffffff1660e01b815260040160206040518083038186803b1580156101c957600080fd5b505afa1580156101dd573d6000803e3d6000fd5b505050506040513d60208110156101f357600080fd5b8101908080519060200190929190505050905090565b3660008037600080366000845af43d6000803e806000811461022a573d6000f35b3d6000fd5b6060831561023f578290506102f4565b6000835111156102525782518084602001fd5b816040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825283818151815260200191508051906020019080838360005b838110156102b957808201518184015260208101905061029e565b50505050905090810190601f1680156102e65780820380516001836020036101000a031916815260200191505b509250505060405180910390fd5b9392505050565b6000807fa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d5060001b905080549150509056fe416464726573733a2064656c65676174652063616c6c20746f206e6f6e2d636f6e7472616374a2646970667358221220e0483bdc92760f9b40ede5a5849ea80b295c8715f53f69f657cdac49854ae25964736f6c63430007060033426561636f6e50726f78793a2066756e6374696f6e2063616c6c206661696c6564426561636f6e50726f78793a20626561636f6e206973206e6f74206120636f6e7472616374416464726573733a2064656c65676174652063616c6c20746f206e6f6e2d636f6e7472616374426561636f6e50726f78793a20626561636f6e20696d706c656d656e746174696f6e206973206e6f74206120636f6e7472616374",
+  "deployedBytecode": "0x6080604052366100135761001161001d565b005b61001b61001d565b005b610025610178565b61003561003061017a565b610209565b565b600080823b905060008111915050919050565b606061005584610037565b6100aa576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602681526020018061032d6026913960400191505060405180910390fd5b6000808573ffffffffffffffffffffffffffffffffffffffff16856040518082805190602001908083835b602083106100f857805182526020820191506020810190506020830392506100d5565b6001836020036101000a038019825116818451168082178552505050505050905001915050600060405180830381855af49150503d8060008114610158576040519150601f19603f3d011682016040523d82523d6000602084013e61015d565b606091505b509150915061016d82828661022f565b925050509392505050565b565b60006101846102fb565b73ffffffffffffffffffffffffffffffffffffffff16635c60da1b6040518163ffffffff1660e01b815260040160206040518083038186803b1580156101c957600080fd5b505afa1580156101dd573d6000803e3d6000fd5b505050506040513d60208110156101f357600080fd5b8101908080519060200190929190505050905090565b3660008037600080366000845af43d6000803e806000811461022a573d6000f35b3d6000fd5b6060831561023f578290506102f4565b6000835111156102525782518084602001fd5b816040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825283818151815260200191508051906020019080838360005b838110156102b957808201518184015260208101905061029e565b50505050905090810190601f1680156102e65780820380516001836020036101000a031916815260200191505b509250505060405180910390fd5b9392505050565b6000807fa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d5060001b905080549150509056fe416464726573733a2064656c65676174652063616c6c20746f206e6f6e2d636f6e7472616374a2646970667358221220e0483bdc92760f9b40ede5a5849ea80b295c8715f53f69f657cdac49854ae25964736f6c63430007060033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "498:2537:42:-:0;;;1314:185;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1455:1;1418:33;1410:42;;:46;1402:55;;811:66;1386:12;;:71;1379:79;;;;1468:24;1479:6;1487:4;1468:10;;;:24;;:::i;:::-;1314:185;;498:2537;;2371:662;2474:26;2493:6;2474:18;;;;;:26;;:::i;:::-;2453:110;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2594:52;2621:6;2613:30;;;:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2594:18;;;;;:52;;:::i;:::-;2573:151;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2734:12;811:66;2749:12;;2734:27;;2864:6;2858:4;2851:20;2909:1;2895:4;:11;:15;2891:136;;;2926:90;2955:17;:15;;;:17;;:::i;:::-;2974:4;2926:90;;;;;;;;;;;;;;;;;:28;;;;;:90;;:::i;:::-;;2891:136;2371:662;;;:::o;718:413:46:-;778:4;981:12;1090:7;1078:20;1070:28;;1123:1;1116:4;:8;1109:15;;;718:413;;;:::o;1901:135:42:-;1968:7;2002:9;:7;;;:9;;:::i;:::-;1994:33;;;:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1987:42;;1901:135;:::o;6660:417:46:-;6771:12;6803:18;6814:6;6803:10;;;:18;;:::i;:::-;6795:69;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6935:12;6949:23;6976:6;:19;;6996:4;6976:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6934:67;;;;7018:52;7036:7;7045:10;7057:12;7018:17;;;:52;;:::i;:::-;7011:59;;;;6660:417;;;;;:::o;1569:229:42:-;1619:14;1645:12;811:66;1660:12;;1645:27;;1777:4;1771:11;1761:21;;1747:45;;:::o;7083:725:46:-;7198:12;7226:7;7222:580;;;7256:10;7249:17;;;;7222:580;7387:1;7367:10;:17;:21;7363:429;;;7625:10;7619:17;7685:15;7672:10;7668:2;7664:19;7657:44;7574:145;7764:12;7757:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;7083:725;;;;;;:::o;498:2537:42:-;;;;;;;",
+  "deployedSourceMap": "498:2537:42:-:0;;;;;;2835:11:44;:9;:11::i;:::-;498:2537:42;;2611:11:44;:9;:11::i;:::-;498:2537:42;2257:110:44;2305:17;:15;:17::i;:::-;2332:28;2342:17;:15;:17::i;:::-;2332:9;:28::i;:::-;2257:110::o;718:413:46:-;778:4;981:12;1090:7;1078:20;1070:28;;1123:1;1116:4;:8;1109:15;;;718:413;;;:::o;6660:417::-;6771:12;6803:18;6814:6;6803:10;:18::i;:::-;6795:69;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6935:12;6949:23;6976:6;:19;;6996:4;6976:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6934:67;;;;7018:52;7036:7;7045:10;7057:12;7018:17;:52::i;:::-;7011:59;;;;6660:417;;;;;:::o;3134:51:44:-;:::o;1901:135:42:-;1968:7;2002:9;:7;:9::i;:::-;1994:33;;;:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1987:42;;1901:135;:::o;883:895:44:-;1277:14;1274:1;1271;1258:34;1491:1;1488;1472:14;1469:1;1453:14;1446:5;1433:60;1567:16;1564:1;1561;1546:38;1605:6;1677:1;1672:38;;;;1743:16;1740:1;1733:27;1672:38;1691:16;1688:1;1681:27;7083:725:46;7198:12;7226:7;7222:580;;;7256:10;7249:17;;;;7222:580;7387:1;7367:10;:17;:21;7363:429;;;7625:10;7619:17;7685:15;7672:10;7668:2;7664:19;7657:44;7574:145;7764:12;7757:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;7083:725;;;;;;:::o;1569:229:42:-;1619:14;1645:12;811:66;1660:12;;1645:27;;1777:4;1771:11;1761:21;;1747:45;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity >=0.6.0 <0.8.0;\n\nimport \"./Proxy.sol\";\nimport \"../utils/Address.sol\";\nimport \"./IBeacon.sol\";\n\n/**\n * @dev This contract implements a proxy that gets the implementation address for each call from a {UpgradeableBeacon}.\n *\n * The beacon address is stored in storage slot `uint256(keccak256('eip1967.proxy.beacon')) - 1`, so that it doesn't\n * conflict with the storage layout of the implementation behind the proxy.\n *\n * _Available since v3.4._\n */\ncontract BeaconProxy is Proxy {\n    /**\n     * @dev The storage slot of the UpgradeableBeacon contract which defines the implementation for this proxy.\n     * This is bytes32(uint256(keccak256('eip1967.proxy.beacon')) - 1)) and is validated in the constructor.\n     */\n    bytes32 private constant _BEACON_SLOT = 0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50;\n\n    /**\n     * @dev Initializes the proxy with `beacon`.\n     *\n     * If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon. This\n     * will typically be an encoded function call, and allows initializating the storage of the proxy like a Solidity\n     * constructor.\n     *\n     * Requirements:\n     *\n     * - `beacon` must be a contract with the interface {IBeacon}.\n     */\n    constructor(address beacon, bytes memory data) payable {\n        assert(_BEACON_SLOT == bytes32(uint256(keccak256(\"eip1967.proxy.beacon\")) - 1));\n        _setBeacon(beacon, data);\n    }\n\n    /**\n     * @dev Returns the current beacon address.\n     */\n    function _beacon() internal view virtual returns (address beacon) {\n        bytes32 slot = _BEACON_SLOT;\n        // solhint-disable-next-line no-inline-assembly\n        assembly {\n            beacon := sload(slot)\n        }\n    }\n\n    /**\n     * @dev Returns the current implementation address of the associated beacon.\n     */\n    function _implementation() internal view virtual override returns (address) {\n        return IBeacon(_beacon()).implementation();\n    }\n\n    /**\n     * @dev Changes the proxy to use a new beacon.\n     *\n     * If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon.\n     *\n     * Requirements:\n     *\n     * - `beacon` must be a contract.\n     * - The implementation returned by `beacon` must be a contract.\n     */\n    function _setBeacon(address beacon, bytes memory data) internal virtual {\n        require(\n            Address.isContract(beacon),\n            \"BeaconProxy: beacon is not a contract\"\n        );\n        require(\n            Address.isContract(IBeacon(beacon).implementation()),\n            \"BeaconProxy: beacon implementation is not a contract\"\n        );\n        bytes32 slot = _BEACON_SLOT;\n\n        // solhint-disable-next-line no-inline-assembly\n        assembly {\n            sstore(slot, beacon)\n        }\n\n        if (data.length > 0) {\n            Address.functionDelegateCall(_implementation(), data, \"BeaconProxy: function call failed\");\n        }\n    }\n}\n",
+  "sourcePath": "@openzeppelin/contracts/proxy/BeaconProxy.sol",
+  "ast": {
+    "absolutePath": "@openzeppelin/contracts/proxy/BeaconProxy.sol",
+    "exportedSymbols": {
+      "Address": [
+        7554
+      ],
+      "BeaconProxy": [
+        7121
+      ],
+      "IBeacon": [
+        7131
+      ],
+      "Proxy": [
+        7183
+      ]
+    },
+    "id": 7122,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7004,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.6",
+          ".0",
+          "<",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:31:42"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/proxy/Proxy.sol",
+        "file": "./Proxy.sol",
+        "id": 7005,
+        "nodeType": "ImportDirective",
+        "scope": 7122,
+        "sourceUnit": 7184,
+        "src": "66:21:42",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/utils/Address.sol",
+        "file": "../utils/Address.sol",
+        "id": 7006,
+        "nodeType": "ImportDirective",
+        "scope": 7122,
+        "sourceUnit": 7555,
+        "src": "88:30:42",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/proxy/IBeacon.sol",
+        "file": "./IBeacon.sol",
+        "id": 7007,
+        "nodeType": "ImportDirective",
+        "scope": 7122,
+        "sourceUnit": 7132,
+        "src": "119:23:42",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 7009,
+              "name": "Proxy",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7183,
+              "src": "522:5:42",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Proxy_$7183",
+                "typeString": "contract Proxy"
+              }
+            },
+            "id": 7010,
+            "nodeType": "InheritanceSpecifier",
+            "src": "522:5:42"
+          }
+        ],
+        "contractDependencies": [
+          7183
+        ],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 7008,
+          "nodeType": "StructuredDocumentation",
+          "src": "144:353:42",
+          "text": " @dev This contract implements a proxy that gets the implementation address for each call from a {UpgradeableBeacon}.\n The beacon address is stored in storage slot `uint256(keccak256('eip1967.proxy.beacon')) - 1`, so that it doesn't\n conflict with the storage layout of the implementation behind the proxy.\n _Available since v3.4._"
+        },
+        "fullyImplemented": true,
+        "id": 7121,
+        "linearizedBaseContracts": [
+          7121,
+          7183
+        ],
+        "name": "BeaconProxy",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "documentation": {
+              "id": 7011,
+              "nodeType": "StructuredDocumentation",
+              "src": "534:232:42",
+              "text": " @dev The storage slot of the UpgradeableBeacon contract which defines the implementation for this proxy.\n This is bytes32(uint256(keccak256('eip1967.proxy.beacon')) - 1)) and is validated in the constructor."
+            },
+            "id": 7014,
+            "mutability": "constant",
+            "name": "_BEACON_SLOT",
+            "nodeType": "VariableDeclaration",
+            "scope": 7121,
+            "src": "771:106:42",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7012,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "771:7:42",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307861336630616437346535343233616562666438306433656634333436353738333335613961373261656165653539666636636233353832623335313333643530",
+              "id": 7013,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "811:66:42",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_74152234768234802001998023604048924213078445070507226371336425913862612794704_by_1",
+                "typeString": "int_const 7415...(69 digits omitted)...4704"
+              },
+              "value": "0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50"
+            },
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 7043,
+              "nodeType": "Block",
+              "src": "1369:130:42",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        "id": 7035,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "id": 7023,
+                          "name": "_BEACON_SLOT",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7014,
+                          "src": "1386:12:42",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "arguments": [
+                            {
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "id": 7033,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "leftExpression": {
+                                "arguments": [
+                                  {
+                                    "arguments": [
+                                      {
+                                        "hexValue": "656970313936372e70726f78792e626561636f6e",
+                                        "id": 7029,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": true,
+                                        "kind": "string",
+                                        "lValueRequested": false,
+                                        "nodeType": "Literal",
+                                        "src": "1428:22:42",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_stringliteral_a3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d51",
+                                          "typeString": "literal_string \"eip1967.proxy.beacon\""
+                                        },
+                                        "value": "eip1967.proxy.beacon"
+                                      }
+                                    ],
+                                    "expression": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_stringliteral_a3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d51",
+                                          "typeString": "literal_string \"eip1967.proxy.beacon\""
+                                        }
+                                      ],
+                                      "id": 7028,
+                                      "name": "keccak256",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 4294967288,
+                                      "src": "1418:9:42",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                                      }
+                                    },
+                                    "id": 7030,
+                                    "isConstant": false,
+                                    "isLValue": false,
+                                    "isPure": true,
+                                    "kind": "functionCall",
+                                    "lValueRequested": false,
+                                    "names": [],
+                                    "nodeType": "FunctionCall",
+                                    "src": "1418:33:42",
+                                    "tryCall": false,
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_bytes32",
+                                      "typeString": "bytes32"
+                                    }
+                                  }
+                                ],
+                                "expression": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_bytes32",
+                                      "typeString": "bytes32"
+                                    }
+                                  ],
+                                  "id": 7027,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "nodeType": "ElementaryTypeNameExpression",
+                                  "src": "1410:7:42",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_type$_t_uint256_$",
+                                    "typeString": "type(uint256)"
+                                  },
+                                  "typeName": {
+                                    "id": 7026,
+                                    "name": "uint256",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "1410:7:42",
+                                    "typeDescriptions": {}
+                                  }
+                                },
+                                "id": 7031,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "kind": "typeConversion",
+                                "lValueRequested": false,
+                                "names": [],
+                                "nodeType": "FunctionCall",
+                                "src": "1410:42:42",
+                                "tryCall": false,
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "nodeType": "BinaryOperation",
+                              "operator": "-",
+                              "rightExpression": {
+                                "hexValue": "31",
+                                "id": 7032,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "kind": "number",
+                                "lValueRequested": false,
+                                "nodeType": "Literal",
+                                "src": "1455:1:42",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_rational_1_by_1",
+                                  "typeString": "int_const 1"
+                                },
+                                "value": "1"
+                              },
+                              "src": "1410:46:42",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "id": 7025,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "1402:7:42",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_bytes32_$",
+                              "typeString": "type(bytes32)"
+                            },
+                            "typeName": {
+                              "id": 7024,
+                              "name": "bytes32",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "1402:7:42",
+                              "typeDescriptions": {}
+                            }
+                          },
+                          "id": 7034,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1402:55:42",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "src": "1386:71:42",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 7022,
+                      "name": "assert",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4294967293,
+                      "src": "1379:6:42",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_assert_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 7036,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1379:79:42",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 7037,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1379:79:42"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 7039,
+                        "name": "beacon",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7017,
+                        "src": "1479:6:42",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 7040,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7019,
+                        "src": "1487:4:42",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 7038,
+                      "name": "_setBeacon",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7120,
+                      "src": "1468:10:42",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$returns$__$",
+                        "typeString": "function (address,bytes memory)"
+                      }
+                    },
+                    "id": 7041,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1468:24:42",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 7042,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1468:24:42"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 7015,
+              "nodeType": "StructuredDocumentation",
+              "src": "884:425:42",
+              "text": " @dev Initializes the proxy with `beacon`.\n If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon. This\n will typically be an encoded function call, and allows initializating the storage of the proxy like a Solidity\n constructor.\n Requirements:\n - `beacon` must be a contract with the interface {IBeacon}."
+            },
+            "id": 7044,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7020,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7017,
+                  "mutability": "mutable",
+                  "name": "beacon",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7044,
+                  "src": "1326:14:42",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 7016,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1326:7:42",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7019,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7044,
+                  "src": "1342:17:42",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 7018,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1342:5:42",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1325:35:42"
+            },
+            "returnParameters": {
+              "id": 7021,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1369:0:42"
+            },
+            "scope": 7121,
+            "src": "1314:185:42",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7055,
+              "nodeType": "Block",
+              "src": "1635:163:42",
+              "statements": [
+                {
+                  "assignments": [
+                    7051
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 7051,
+                      "mutability": "mutable",
+                      "name": "slot",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 7055,
+                      "src": "1645:12:42",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      },
+                      "typeName": {
+                        "id": 7050,
+                        "name": "bytes32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1645:7:42",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 7053,
+                  "initialValue": {
+                    "id": 7052,
+                    "name": "_BEACON_SLOT",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 7014,
+                    "src": "1660:12:42",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1645:27:42"
+                },
+                {
+                  "AST": {
+                    "nodeType": "YulBlock",
+                    "src": "1747:45:42",
+                    "statements": [
+                      {
+                        "nodeType": "YulAssignment",
+                        "src": "1761:21:42",
+                        "value": {
+                          "arguments": [
+                            {
+                              "name": "slot",
+                              "nodeType": "YulIdentifier",
+                              "src": "1777:4:42"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "sload",
+                            "nodeType": "YulIdentifier",
+                            "src": "1771:5:42"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "1771:11:42"
+                        },
+                        "variableNames": [
+                          {
+                            "name": "beacon",
+                            "nodeType": "YulIdentifier",
+                            "src": "1761:6:42"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "evmVersion": "istanbul",
+                  "externalReferences": [
+                    {
+                      "declaration": 7048,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "1761:6:42",
+                      "valueSize": 1
+                    },
+                    {
+                      "declaration": 7051,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "1777:4:42",
+                      "valueSize": 1
+                    }
+                  ],
+                  "id": 7054,
+                  "nodeType": "InlineAssembly",
+                  "src": "1738:54:42"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 7045,
+              "nodeType": "StructuredDocumentation",
+              "src": "1505:59:42",
+              "text": " @dev Returns the current beacon address."
+            },
+            "id": 7056,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_beacon",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7046,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1585:2:42"
+            },
+            "returnParameters": {
+              "id": 7049,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7048,
+                  "mutability": "mutable",
+                  "name": "beacon",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7056,
+                  "src": "1619:14:42",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 7047,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1619:7:42",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1618:16:42"
+            },
+            "scope": 7121,
+            "src": "1569:229:42",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "internal"
+          },
+          {
+            "baseFunctions": [
+              7148
+            ],
+            "body": {
+              "id": 7070,
+              "nodeType": "Block",
+              "src": "1977:59:42",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "arguments": [
+                          {
+                            "arguments": [],
+                            "expression": {
+                              "argumentTypes": [],
+                              "id": 7064,
+                              "name": "_beacon",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 7056,
+                              "src": "2002:7:42",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                                "typeString": "function () view returns (address)"
+                              }
+                            },
+                            "id": 7065,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "functionCall",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "2002:9:42",
+                            "tryCall": false,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "id": 7063,
+                          "name": "IBeacon",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7131,
+                          "src": "1994:7:42",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_IBeacon_$7131_$",
+                            "typeString": "type(contract IBeacon)"
+                          }
+                        },
+                        "id": 7066,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1994:18:42",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IBeacon_$7131",
+                          "typeString": "contract IBeacon"
+                        }
+                      },
+                      "id": 7067,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "implementation",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 7130,
+                      "src": "1994:33:42",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
+                        "typeString": "function () view external returns (address)"
+                      }
+                    },
+                    "id": 7068,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1994:35:42",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 7062,
+                  "id": 7069,
+                  "nodeType": "Return",
+                  "src": "1987:42:42"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 7057,
+              "nodeType": "StructuredDocumentation",
+              "src": "1804:92:42",
+              "text": " @dev Returns the current implementation address of the associated beacon."
+            },
+            "id": 7071,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_implementation",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 7059,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "1950:8:42"
+            },
+            "parameters": {
+              "id": 7058,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1925:2:42"
+            },
+            "returnParameters": {
+              "id": 7062,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7061,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7071,
+                  "src": "1968:7:42",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 7060,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1968:7:42",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1967:9:42"
+            },
+            "scope": 7121,
+            "src": "1901:135:42",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 7119,
+              "nodeType": "Block",
+              "src": "2443:590:42",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "id": 7082,
+                            "name": "beacon",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 7074,
+                            "src": "2493:6:42",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "expression": {
+                            "id": 7080,
+                            "name": "Address",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 7554,
+                            "src": "2474:7:42",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_Address_$7554_$",
+                              "typeString": "type(library Address)"
+                            }
+                          },
+                          "id": 7081,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "isContract",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 7278,
+                          "src": "2474:18:42",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
+                            "typeString": "function (address) view returns (bool)"
+                          }
+                        },
+                        "id": 7083,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "2474:26:42",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "426561636f6e50726f78793a20626561636f6e206973206e6f74206120636f6e7472616374",
+                        "id": 7084,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "2514:39:42",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_53daaee6c8f15e50eac8695a66c34c0f6ccc33039991062daa2b1d74b5bd10c9",
+                          "typeString": "literal_string \"BeaconProxy: beacon is not a contract\""
+                        },
+                        "value": "BeaconProxy: beacon is not a contract"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_53daaee6c8f15e50eac8695a66c34c0f6ccc33039991062daa2b1d74b5bd10c9",
+                          "typeString": "literal_string \"BeaconProxy: beacon is not a contract\""
+                        }
+                      ],
+                      "id": 7079,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "2453:7:42",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 7085,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2453:110:42",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 7086,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2453:110:42"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "arguments": [],
+                            "expression": {
+                              "argumentTypes": [],
+                              "expression": {
+                                "arguments": [
+                                  {
+                                    "id": 7091,
+                                    "name": "beacon",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 7074,
+                                    "src": "2621:6:42",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  }
+                                ],
+                                "expression": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  ],
+                                  "id": 7090,
+                                  "name": "IBeacon",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 7131,
+                                  "src": "2613:7:42",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_type$_t_contract$_IBeacon_$7131_$",
+                                    "typeString": "type(contract IBeacon)"
+                                  }
+                                },
+                                "id": 7092,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "kind": "typeConversion",
+                                "lValueRequested": false,
+                                "names": [],
+                                "nodeType": "FunctionCall",
+                                "src": "2613:15:42",
+                                "tryCall": false,
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_contract$_IBeacon_$7131",
+                                  "typeString": "contract IBeacon"
+                                }
+                              },
+                              "id": 7093,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "implementation",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 7130,
+                              "src": "2613:30:42",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
+                                "typeString": "function () view external returns (address)"
+                              }
+                            },
+                            "id": 7094,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "functionCall",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "2613:32:42",
+                            "tryCall": false,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "expression": {
+                            "id": 7088,
+                            "name": "Address",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 7554,
+                            "src": "2594:7:42",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_Address_$7554_$",
+                              "typeString": "type(library Address)"
+                            }
+                          },
+                          "id": 7089,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "isContract",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 7278,
+                          "src": "2594:18:42",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
+                            "typeString": "function (address) view returns (bool)"
+                          }
+                        },
+                        "id": 7095,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "2594:52:42",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "426561636f6e50726f78793a20626561636f6e20696d706c656d656e746174696f6e206973206e6f74206120636f6e7472616374",
+                        "id": 7096,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "2660:54:42",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_ff1f719f4da241d3b1e9f94c58b47fc2f722d5e8ebf2cdf3bf4ddc03bf3fd226",
+                          "typeString": "literal_string \"BeaconProxy: beacon implementation is not a contract\""
+                        },
+                        "value": "BeaconProxy: beacon implementation is not a contract"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_ff1f719f4da241d3b1e9f94c58b47fc2f722d5e8ebf2cdf3bf4ddc03bf3fd226",
+                          "typeString": "literal_string \"BeaconProxy: beacon implementation is not a contract\""
+                        }
+                      ],
+                      "id": 7087,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "2573:7:42",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 7097,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2573:151:42",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 7098,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2573:151:42"
+                },
+                {
+                  "assignments": [
+                    7100
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 7100,
+                      "mutability": "mutable",
+                      "name": "slot",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 7119,
+                      "src": "2734:12:42",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      },
+                      "typeName": {
+                        "id": 7099,
+                        "name": "bytes32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2734:7:42",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 7102,
+                  "initialValue": {
+                    "id": 7101,
+                    "name": "_BEACON_SLOT",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 7014,
+                    "src": "2749:12:42",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2734:27:42"
+                },
+                {
+                  "AST": {
+                    "nodeType": "YulBlock",
+                    "src": "2837:44:42",
+                    "statements": [
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "name": "slot",
+                              "nodeType": "YulIdentifier",
+                              "src": "2858:4:42"
+                            },
+                            {
+                              "name": "beacon",
+                              "nodeType": "YulIdentifier",
+                              "src": "2864:6:42"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "sstore",
+                            "nodeType": "YulIdentifier",
+                            "src": "2851:6:42"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "2851:20:42"
+                        },
+                        "nodeType": "YulExpressionStatement",
+                        "src": "2851:20:42"
+                      }
+                    ]
+                  },
+                  "evmVersion": "istanbul",
+                  "externalReferences": [
+                    {
+                      "declaration": 7074,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "2864:6:42",
+                      "valueSize": 1
+                    },
+                    {
+                      "declaration": 7100,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "2858:4:42",
+                      "valueSize": 1
+                    }
+                  ],
+                  "id": 7103,
+                  "nodeType": "InlineAssembly",
+                  "src": "2828:53:42"
+                },
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 7107,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "expression": {
+                        "id": 7104,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7076,
+                        "src": "2895:4:42",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      },
+                      "id": 7105,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "src": "2895:11:42",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": ">",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 7106,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "2909:1:42",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "2895:15:42",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 7118,
+                  "nodeType": "IfStatement",
+                  "src": "2891:136:42",
+                  "trueBody": {
+                    "id": 7117,
+                    "nodeType": "Block",
+                    "src": "2912:115:42",
+                    "statements": [
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "arguments": [],
+                              "expression": {
+                                "argumentTypes": [],
+                                "id": 7111,
+                                "name": "_implementation",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [
+                                  7071
+                                ],
+                                "referencedDeclaration": 7071,
+                                "src": "2955:15:42",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
+                                  "typeString": "function () view returns (address)"
+                                }
+                              },
+                              "id": 7112,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "2955:17:42",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            },
+                            {
+                              "id": 7113,
+                              "name": "data",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 7076,
+                              "src": "2974:4:42",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_memory_ptr",
+                                "typeString": "bytes memory"
+                              }
+                            },
+                            {
+                              "hexValue": "426561636f6e50726f78793a2066756e6374696f6e2063616c6c206661696c6564",
+                              "id": 7114,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "string",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "2980:35:42",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_stringliteral_4b9118f6e611fdd8fc95671ccbd662d4523f4260d53b96e250349693c7d23726",
+                                "typeString": "literal_string \"BeaconProxy: function call failed\""
+                              },
+                              "value": "BeaconProxy: function call failed"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              {
+                                "typeIdentifier": "t_bytes_memory_ptr",
+                                "typeString": "bytes memory"
+                              },
+                              {
+                                "typeIdentifier": "t_stringliteral_4b9118f6e611fdd8fc95671ccbd662d4523f4260d53b96e250349693c7d23726",
+                                "typeString": "literal_string \"BeaconProxy: function call failed\""
+                              }
+                            ],
+                            "expression": {
+                              "id": 7108,
+                              "name": "Address",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 7554,
+                              "src": "2926:7:42",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_contract$_Address_$7554_$",
+                                "typeString": "type(library Address)"
+                              }
+                            },
+                            "id": 7110,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "functionDelegateCall",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 7523,
+                            "src": "2926:28:42",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$_t_string_memory_ptr_$returns$_t_bytes_memory_ptr_$",
+                              "typeString": "function (address,bytes memory,string memory) returns (bytes memory)"
+                            }
+                          },
+                          "id": 7115,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "2926:90:42",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        },
+                        "id": 7116,
+                        "nodeType": "ExpressionStatement",
+                        "src": "2926:90:42"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "documentation": {
+              "id": 7072,
+              "nodeType": "StructuredDocumentation",
+              "src": "2042:324:42",
+              "text": " @dev Changes the proxy to use a new beacon.\n If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon.\n Requirements:\n - `beacon` must be a contract.\n - The implementation returned by `beacon` must be a contract."
+            },
+            "id": 7120,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_setBeacon",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7077,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7074,
+                  "mutability": "mutable",
+                  "name": "beacon",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7120,
+                  "src": "2391:14:42",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 7073,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2391:7:42",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7076,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7120,
+                  "src": "2407:17:42",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 7075,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2407:5:42",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2390:35:42"
+            },
+            "returnParameters": {
+              "id": 7078,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2443:0:42"
+            },
+            "scope": 7121,
+            "src": "2371:662:42",
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 7122,
+        "src": "498:2537:42"
+      }
+    ],
+    "src": "33:3003:42"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "@openzeppelin/contracts/proxy/BeaconProxy.sol",
+      "exportedSymbols": {
+        "Address": [
+          7554
+        ],
+        "BeaconProxy": [
+          7121
+        ],
+        "IBeacon": [
+          7131
+        ],
+        "Proxy": [
+          7183
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.6",
+            ".0",
+            "<",
+            "0.8",
+            ".0"
+          ]
+        },
+        "id": 7004,
+        "name": "PragmaDirective",
+        "src": "33:31:42"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 7184,
+          "absolutePath": "@openzeppelin/contracts/proxy/Proxy.sol",
+          "file": "./Proxy.sol",
+          "scope": 7122,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 7005,
+        "name": "ImportDirective",
+        "src": "66:21:42"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 7555,
+          "absolutePath": "@openzeppelin/contracts/utils/Address.sol",
+          "file": "../utils/Address.sol",
+          "scope": 7122,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 7006,
+        "name": "ImportDirective",
+        "src": "88:30:42"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 7132,
+          "absolutePath": "@openzeppelin/contracts/proxy/IBeacon.sol",
+          "file": "./IBeacon.sol",
+          "scope": 7122,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 7007,
+        "name": "ImportDirective",
+        "src": "119:23:42"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "contractDependencies": [
+            7183
+          ],
+          "contractKind": "contract",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            7121,
+            7183
+          ],
+          "name": "BeaconProxy",
+          "scope": 7122
+        },
+        "children": [
+          {
+            "attributes": {
+              "text": " @dev This contract implements a proxy that gets the implementation address for each call from a {UpgradeableBeacon}.\n The beacon address is stored in storage slot `uint256(keccak256('eip1967.proxy.beacon')) - 1`, so that it doesn't\n conflict with the storage layout of the implementation behind the proxy.\n _Available since v3.4._"
+            },
+            "id": 7008,
+            "name": "StructuredDocumentation",
+            "src": "144:353:42"
+          },
+          {
+            "attributes": {},
+            "children": [
+              {
+                "attributes": {
+                  "name": "Proxy",
+                  "referencedDeclaration": 7183,
+                  "type": "contract Proxy"
+                },
+                "id": 7009,
+                "name": "UserDefinedTypeName",
+                "src": "522:5:42"
+              }
+            ],
+            "id": 7010,
+            "name": "InheritanceSpecifier",
+            "src": "522:5:42"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "mutability": "constant",
+              "name": "_BEACON_SLOT",
+              "scope": 7121,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bytes32",
+              "visibility": "private"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bytes32",
+                  "type": "bytes32"
+                },
+                "id": 7012,
+                "name": "ElementaryTypeName",
+                "src": "771:7:42"
+              },
+              {
+                "attributes": {
+                  "hexvalue": "307861336630616437346535343233616562666438306433656634333436353738333335613961373261656165653539666636636233353832623335313333643530",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "token": "number",
+                  "type": "int_const 7415...(69 digits omitted)...4704",
+                  "value": "0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50"
+                },
+                "id": 7013,
+                "name": "Literal",
+                "src": "811:66:42"
+              },
+              {
+                "attributes": {
+                  "text": " @dev The storage slot of the UpgradeableBeacon contract which defines the implementation for this proxy.\n This is bytes32(uint256(keccak256('eip1967.proxy.beacon')) - 1)) and is validated in the constructor."
+                },
+                "id": 7011,
+                "name": "StructuredDocumentation",
+                "src": "534:232:42"
+              }
+            ],
+            "id": 7014,
+            "name": "VariableDeclaration",
+            "src": "771:106:42"
+          },
+          {
+            "attributes": {
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 7121,
+              "stateMutability": "payable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev Initializes the proxy with `beacon`.\n If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon. This\n will typically be an encoded function call, and allows initializating the storage of the proxy like a Solidity\n constructor.\n Requirements:\n - `beacon` must be a contract with the interface {IBeacon}."
+                },
+                "id": 7015,
+                "name": "StructuredDocumentation",
+                "src": "884:425:42"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "beacon",
+                      "scope": 7044,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 7016,
+                        "name": "ElementaryTypeName",
+                        "src": "1326:7:42"
+                      }
+                    ],
+                    "id": 7017,
+                    "name": "VariableDeclaration",
+                    "src": "1326:14:42"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "data",
+                      "scope": 7044,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "bytes",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes"
+                        },
+                        "id": 7018,
+                        "name": "ElementaryTypeName",
+                        "src": "1342:5:42"
+                      }
+                    ],
+                    "id": 7019,
+                    "name": "VariableDeclaration",
+                    "src": "1342:17:42"
+                  }
+                ],
+                "id": 7020,
+                "name": "ParameterList",
+                "src": "1325:35:42"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 7021,
+                "name": "ParameterList",
+                "src": "1369:0:42"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 4294967293,
+                              "type": "function (bool) pure",
+                              "value": "assert"
+                            },
+                            "id": 7022,
+                            "name": "Identifier",
+                            "src": "1379:6:42"
+                          },
+                          {
+                            "attributes": {
+                              "commonType": {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 7014,
+                                  "type": "bytes32",
+                                  "value": "_BEACON_SLOT"
+                                },
+                                "id": 7023,
+                                "name": "Identifier",
+                                "src": "1386:12:42"
+                              },
+                              {
+                                "attributes": {
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "bytes32",
+                                  "type_conversion": true
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_uint256",
+                                          "typeString": "uint256"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "type": "type(bytes32)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "name": "bytes32"
+                                        },
+                                        "id": 7024,
+                                        "name": "ElementaryTypeName",
+                                        "src": "1402:7:42"
+                                      }
+                                    ],
+                                    "id": 7025,
+                                    "name": "ElementaryTypeNameExpression",
+                                    "src": "1402:7:42"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "commonType": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                      },
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "operator": "-",
+                                      "type": "uint256"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "isStructConstructorCall": false,
+                                          "lValueRequested": false,
+                                          "names": [
+                                            null
+                                          ],
+                                          "tryCall": false,
+                                          "type": "uint256",
+                                          "type_conversion": true
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": [
+                                                {
+                                                  "typeIdentifier": "t_bytes32",
+                                                  "typeString": "bytes32"
+                                                }
+                                              ],
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "lValueRequested": false,
+                                              "type": "type(uint256)"
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "name": "uint256"
+                                                },
+                                                "id": 7026,
+                                                "name": "ElementaryTypeName",
+                                                "src": "1410:7:42"
+                                              }
+                                            ],
+                                            "id": 7027,
+                                            "name": "ElementaryTypeNameExpression",
+                                            "src": "1410:7:42"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": true,
+                                              "isStructConstructorCall": false,
+                                              "lValueRequested": false,
+                                              "names": [
+                                                null
+                                              ],
+                                              "tryCall": false,
+                                              "type": "bytes32",
+                                              "type_conversion": false
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": [
+                                                    {
+                                                      "typeIdentifier": "t_stringliteral_a3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d51",
+                                                      "typeString": "literal_string \"eip1967.proxy.beacon\""
+                                                    }
+                                                  ],
+                                                  "overloadedDeclarations": [
+                                                    null
+                                                  ],
+                                                  "referencedDeclaration": 4294967288,
+                                                  "type": "function (bytes memory) pure returns (bytes32)",
+                                                  "value": "keccak256"
+                                                },
+                                                "id": 7028,
+                                                "name": "Identifier",
+                                                "src": "1418:9:42"
+                                              },
+                                              {
+                                                "attributes": {
+                                                  "hexvalue": "656970313936372e70726f78792e626561636f6e",
+                                                  "isConstant": false,
+                                                  "isLValue": false,
+                                                  "isPure": true,
+                                                  "lValueRequested": false,
+                                                  "token": "string",
+                                                  "type": "literal_string \"eip1967.proxy.beacon\"",
+                                                  "value": "eip1967.proxy.beacon"
+                                                },
+                                                "id": 7029,
+                                                "name": "Literal",
+                                                "src": "1428:22:42"
+                                              }
+                                            ],
+                                            "id": 7030,
+                                            "name": "FunctionCall",
+                                            "src": "1418:33:42"
+                                          }
+                                        ],
+                                        "id": 7031,
+                                        "name": "FunctionCall",
+                                        "src": "1410:42:42"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "hexvalue": "31",
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "lValueRequested": false,
+                                          "token": "number",
+                                          "type": "int_const 1",
+                                          "value": "1"
+                                        },
+                                        "id": 7032,
+                                        "name": "Literal",
+                                        "src": "1455:1:42"
+                                      }
+                                    ],
+                                    "id": 7033,
+                                    "name": "BinaryOperation",
+                                    "src": "1410:46:42"
+                                  }
+                                ],
+                                "id": 7034,
+                                "name": "FunctionCall",
+                                "src": "1402:55:42"
+                              }
+                            ],
+                            "id": 7035,
+                            "name": "BinaryOperation",
+                            "src": "1386:71:42"
+                          }
+                        ],
+                        "id": 7036,
+                        "name": "FunctionCall",
+                        "src": "1379:79:42"
+                      }
+                    ],
+                    "id": 7037,
+                    "name": "ExpressionStatement",
+                    "src": "1379:79:42"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_bytes_memory_ptr",
+                                  "typeString": "bytes memory"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 7120,
+                              "type": "function (address,bytes memory)",
+                              "value": "_setBeacon"
+                            },
+                            "id": 7038,
+                            "name": "Identifier",
+                            "src": "1468:10:42"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 7017,
+                              "type": "address",
+                              "value": "beacon"
+                            },
+                            "id": 7039,
+                            "name": "Identifier",
+                            "src": "1479:6:42"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 7019,
+                              "type": "bytes memory",
+                              "value": "data"
+                            },
+                            "id": 7040,
+                            "name": "Identifier",
+                            "src": "1487:4:42"
+                          }
+                        ],
+                        "id": 7041,
+                        "name": "FunctionCall",
+                        "src": "1468:24:42"
+                      }
+                    ],
+                    "id": 7042,
+                    "name": "ExpressionStatement",
+                    "src": "1468:24:42"
+                  }
+                ],
+                "id": 7043,
+                "name": "Block",
+                "src": "1369:130:42"
+              }
+            ],
+            "id": 7044,
+            "name": "FunctionDefinition",
+            "src": "1314:185:42"
+          },
+          {
+            "attributes": {
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "_beacon",
+              "scope": 7121,
+              "stateMutability": "view",
+              "virtual": true,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev Returns the current beacon address."
+                },
+                "id": 7045,
+                "name": "StructuredDocumentation",
+                "src": "1505:59:42"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 7046,
+                "name": "ParameterList",
+                "src": "1585:2:42"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "beacon",
+                      "scope": 7056,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 7047,
+                        "name": "ElementaryTypeName",
+                        "src": "1619:7:42"
+                      }
+                    ],
+                    "id": 7048,
+                    "name": "VariableDeclaration",
+                    "src": "1619:14:42"
+                  }
+                ],
+                "id": 7049,
+                "name": "ParameterList",
+                "src": "1618:16:42"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        7051
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "mutability": "mutable",
+                          "name": "slot",
+                          "scope": 7055,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "bytes32",
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes32",
+                              "type": "bytes32"
+                            },
+                            "id": 7050,
+                            "name": "ElementaryTypeName",
+                            "src": "1645:7:42"
+                          }
+                        ],
+                        "id": 7051,
+                        "name": "VariableDeclaration",
+                        "src": "1645:12:42"
+                      },
+                      {
+                        "attributes": {
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 7014,
+                          "type": "bytes32",
+                          "value": "_BEACON_SLOT"
+                        },
+                        "id": 7052,
+                        "name": "Identifier",
+                        "src": "1660:12:42"
+                      }
+                    ],
+                    "id": 7053,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1645:27:42"
+                  },
+                  {
+                    "attributes": {
+                      "evmVersion": "istanbul",
+                      "externalReferences": [
+                        {
+                          "declaration": 7048,
+                          "isOffset": false,
+                          "isSlot": false,
+                          "src": "1761:6:42",
+                          "valueSize": 1
+                        },
+                        {
+                          "declaration": 7051,
+                          "isOffset": false,
+                          "isSlot": false,
+                          "src": "1777:4:42",
+                          "valueSize": 1
+                        }
+                      ],
+                      "operations": "{ beacon := sload(slot) }"
+                    },
+                    "children": [],
+                    "id": 7054,
+                    "name": "InlineAssembly",
+                    "src": "1738:54:42"
+                  }
+                ],
+                "id": 7055,
+                "name": "Block",
+                "src": "1635:163:42"
+              }
+            ],
+            "id": 7056,
+            "name": "FunctionDefinition",
+            "src": "1569:229:42"
+          },
+          {
+            "attributes": {
+              "baseFunctions": [
+                7148
+              ],
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "_implementation",
+              "scope": 7121,
+              "stateMutability": "view",
+              "virtual": true,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev Returns the current implementation address of the associated beacon."
+                },
+                "id": 7057,
+                "name": "StructuredDocumentation",
+                "src": "1804:92:42"
+              },
+              {
+                "attributes": {
+                  "overrides": [
+                    null
+                  ]
+                },
+                "id": 7059,
+                "name": "OverrideSpecifier",
+                "src": "1950:8:42"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 7058,
+                "name": "ParameterList",
+                "src": "1925:2:42"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "scope": 7071,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 7060,
+                        "name": "ElementaryTypeName",
+                        "src": "1968:7:42"
+                      }
+                    ],
+                    "id": 7061,
+                    "name": "VariableDeclaration",
+                    "src": "1968:7:42"
+                  }
+                ],
+                "id": 7062,
+                "name": "ParameterList",
+                "src": "1967:9:42"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 7062
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "arguments": [
+                            null
+                          ],
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "address",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                null
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "implementation",
+                              "referencedDeclaration": 7130,
+                              "type": "function () view external returns (address)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "contract IBeacon",
+                                  "type_conversion": true
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        }
+                                      ],
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 7131,
+                                      "type": "type(contract IBeacon)",
+                                      "value": "IBeacon"
+                                    },
+                                    "id": 7063,
+                                    "name": "Identifier",
+                                    "src": "1994:7:42"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "arguments": [
+                                        null
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "isStructConstructorCall": false,
+                                      "lValueRequested": false,
+                                      "names": [
+                                        null
+                                      ],
+                                      "tryCall": false,
+                                      "type": "address",
+                                      "type_conversion": false
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": [
+                                            null
+                                          ],
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 7056,
+                                          "type": "function () view returns (address)",
+                                          "value": "_beacon"
+                                        },
+                                        "id": 7064,
+                                        "name": "Identifier",
+                                        "src": "2002:7:42"
+                                      }
+                                    ],
+                                    "id": 7065,
+                                    "name": "FunctionCall",
+                                    "src": "2002:9:42"
+                                  }
+                                ],
+                                "id": 7066,
+                                "name": "FunctionCall",
+                                "src": "1994:18:42"
+                              }
+                            ],
+                            "id": 7067,
+                            "name": "MemberAccess",
+                            "src": "1994:33:42"
+                          }
+                        ],
+                        "id": 7068,
+                        "name": "FunctionCall",
+                        "src": "1994:35:42"
+                      }
+                    ],
+                    "id": 7069,
+                    "name": "Return",
+                    "src": "1987:42:42"
+                  }
+                ],
+                "id": 7070,
+                "name": "Block",
+                "src": "1977:59:42"
+              }
+            ],
+            "id": 7071,
+            "name": "FunctionDefinition",
+            "src": "1901:135:42"
+          },
+          {
+            "attributes": {
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "_setBeacon",
+              "scope": 7121,
+              "stateMutability": "nonpayable",
+              "virtual": true,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev Changes the proxy to use a new beacon.\n If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon.\n Requirements:\n - `beacon` must be a contract.\n - The implementation returned by `beacon` must be a contract."
+                },
+                "id": 7072,
+                "name": "StructuredDocumentation",
+                "src": "2042:324:42"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "beacon",
+                      "scope": 7120,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 7073,
+                        "name": "ElementaryTypeName",
+                        "src": "2391:7:42"
+                      }
+                    ],
+                    "id": 7074,
+                    "name": "VariableDeclaration",
+                    "src": "2391:14:42"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "data",
+                      "scope": 7120,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "bytes",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes"
+                        },
+                        "id": 7075,
+                        "name": "ElementaryTypeName",
+                        "src": "2407:5:42"
+                      }
+                    ],
+                    "id": 7076,
+                    "name": "VariableDeclaration",
+                    "src": "2407:17:42"
+                  }
+                ],
+                "id": 7077,
+                "name": "ParameterList",
+                "src": "2390:35:42"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 7078,
+                "name": "ParameterList",
+                "src": "2443:0:42"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_53daaee6c8f15e50eac8695a66c34c0f6ccc33039991062daa2b1d74b5bd10c9",
+                                  "typeString": "literal_string \"BeaconProxy: beacon is not a contract\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                4294967278,
+                                4294967278
+                              ],
+                              "referencedDeclaration": 4294967278,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 7079,
+                            "name": "Identifier",
+                            "src": "2453:7:42"
+                          },
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "bool",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "isContract",
+                                  "referencedDeclaration": 7278,
+                                  "type": "function (address) view returns (bool)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 7554,
+                                      "type": "type(library Address)",
+                                      "value": "Address"
+                                    },
+                                    "id": 7080,
+                                    "name": "Identifier",
+                                    "src": "2474:7:42"
+                                  }
+                                ],
+                                "id": 7081,
+                                "name": "MemberAccess",
+                                "src": "2474:18:42"
+                              },
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 7074,
+                                  "type": "address",
+                                  "value": "beacon"
+                                },
+                                "id": 7082,
+                                "name": "Identifier",
+                                "src": "2493:6:42"
+                              }
+                            ],
+                            "id": 7083,
+                            "name": "FunctionCall",
+                            "src": "2474:26:42"
+                          },
+                          {
+                            "attributes": {
+                              "hexvalue": "426561636f6e50726f78793a20626561636f6e206973206e6f74206120636f6e7472616374",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "token": "string",
+                              "type": "literal_string \"BeaconProxy: beacon is not a contract\"",
+                              "value": "BeaconProxy: beacon is not a contract"
+                            },
+                            "id": 7084,
+                            "name": "Literal",
+                            "src": "2514:39:42"
+                          }
+                        ],
+                        "id": 7085,
+                        "name": "FunctionCall",
+                        "src": "2453:110:42"
+                      }
+                    ],
+                    "id": 7086,
+                    "name": "ExpressionStatement",
+                    "src": "2453:110:42"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_ff1f719f4da241d3b1e9f94c58b47fc2f722d5e8ebf2cdf3bf4ddc03bf3fd226",
+                                  "typeString": "literal_string \"BeaconProxy: beacon implementation is not a contract\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                4294967278,
+                                4294967278
+                              ],
+                              "referencedDeclaration": 4294967278,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 7087,
+                            "name": "Identifier",
+                            "src": "2573:7:42"
+                          },
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "bool",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "isContract",
+                                  "referencedDeclaration": 7278,
+                                  "type": "function (address) view returns (bool)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 7554,
+                                      "type": "type(library Address)",
+                                      "value": "Address"
+                                    },
+                                    "id": 7088,
+                                    "name": "Identifier",
+                                    "src": "2594:7:42"
+                                  }
+                                ],
+                                "id": 7089,
+                                "name": "MemberAccess",
+                                "src": "2594:18:42"
+                              },
+                              {
+                                "attributes": {
+                                  "arguments": [
+                                    null
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "address",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        null
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "implementation",
+                                      "referencedDeclaration": 7130,
+                                      "type": "function () view external returns (address)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": false,
+                                          "isStructConstructorCall": false,
+                                          "lValueRequested": false,
+                                          "names": [
+                                            null
+                                          ],
+                                          "tryCall": false,
+                                          "type": "contract IBeacon",
+                                          "type_conversion": true
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": [
+                                                {
+                                                  "typeIdentifier": "t_address",
+                                                  "typeString": "address"
+                                                }
+                                              ],
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 7131,
+                                              "type": "type(contract IBeacon)",
+                                              "value": "IBeacon"
+                                            },
+                                            "id": 7090,
+                                            "name": "Identifier",
+                                            "src": "2613:7:42"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 7074,
+                                              "type": "address",
+                                              "value": "beacon"
+                                            },
+                                            "id": 7091,
+                                            "name": "Identifier",
+                                            "src": "2621:6:42"
+                                          }
+                                        ],
+                                        "id": 7092,
+                                        "name": "FunctionCall",
+                                        "src": "2613:15:42"
+                                      }
+                                    ],
+                                    "id": 7093,
+                                    "name": "MemberAccess",
+                                    "src": "2613:30:42"
+                                  }
+                                ],
+                                "id": 7094,
+                                "name": "FunctionCall",
+                                "src": "2613:32:42"
+                              }
+                            ],
+                            "id": 7095,
+                            "name": "FunctionCall",
+                            "src": "2594:52:42"
+                          },
+                          {
+                            "attributes": {
+                              "hexvalue": "426561636f6e50726f78793a20626561636f6e20696d706c656d656e746174696f6e206973206e6f74206120636f6e7472616374",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "token": "string",
+                              "type": "literal_string \"BeaconProxy: beacon implementation is not a contract\"",
+                              "value": "BeaconProxy: beacon implementation is not a contract"
+                            },
+                            "id": 7096,
+                            "name": "Literal",
+                            "src": "2660:54:42"
+                          }
+                        ],
+                        "id": 7097,
+                        "name": "FunctionCall",
+                        "src": "2573:151:42"
+                      }
+                    ],
+                    "id": 7098,
+                    "name": "ExpressionStatement",
+                    "src": "2573:151:42"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        7100
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "mutability": "mutable",
+                          "name": "slot",
+                          "scope": 7119,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "bytes32",
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes32",
+                              "type": "bytes32"
+                            },
+                            "id": 7099,
+                            "name": "ElementaryTypeName",
+                            "src": "2734:7:42"
+                          }
+                        ],
+                        "id": 7100,
+                        "name": "VariableDeclaration",
+                        "src": "2734:12:42"
+                      },
+                      {
+                        "attributes": {
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 7014,
+                          "type": "bytes32",
+                          "value": "_BEACON_SLOT"
+                        },
+                        "id": 7101,
+                        "name": "Identifier",
+                        "src": "2749:12:42"
+                      }
+                    ],
+                    "id": 7102,
+                    "name": "VariableDeclarationStatement",
+                    "src": "2734:27:42"
+                  },
+                  {
+                    "attributes": {
+                      "evmVersion": "istanbul",
+                      "externalReferences": [
+                        {
+                          "declaration": 7074,
+                          "isOffset": false,
+                          "isSlot": false,
+                          "src": "2864:6:42",
+                          "valueSize": 1
+                        },
+                        {
+                          "declaration": 7100,
+                          "isOffset": false,
+                          "isSlot": false,
+                          "src": "2858:4:42",
+                          "valueSize": 1
+                        }
+                      ],
+                      "operations": "{ sstore(slot, beacon) }"
+                    },
+                    "children": [],
+                    "id": 7103,
+                    "name": "InlineAssembly",
+                    "src": "2828:53:42"
+                  },
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": ">",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "length",
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 7076,
+                                  "type": "bytes memory",
+                                  "value": "data"
+                                },
+                                "id": 7104,
+                                "name": "Identifier",
+                                "src": "2895:4:42"
+                              }
+                            ],
+                            "id": 7105,
+                            "name": "MemberAccess",
+                            "src": "2895:11:42"
+                          },
+                          {
+                            "attributes": {
+                              "hexvalue": "30",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "token": "number",
+                              "type": "int_const 0",
+                              "value": "0"
+                            },
+                            "id": 7106,
+                            "name": "Literal",
+                            "src": "2909:1:42"
+                          }
+                        ],
+                        "id": 7107,
+                        "name": "BinaryOperation",
+                        "src": "2895:15:42"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "attributes": {
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "bytes memory",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        },
+                                        {
+                                          "typeIdentifier": "t_bytes_memory_ptr",
+                                          "typeString": "bytes memory"
+                                        },
+                                        {
+                                          "typeIdentifier": "t_stringliteral_4b9118f6e611fdd8fc95671ccbd662d4523f4260d53b96e250349693c7d23726",
+                                          "typeString": "literal_string \"BeaconProxy: function call failed\""
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "functionDelegateCall",
+                                      "referencedDeclaration": 7523,
+                                      "type": "function (address,bytes memory,string memory) returns (bytes memory)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 7554,
+                                          "type": "type(library Address)",
+                                          "value": "Address"
+                                        },
+                                        "id": 7108,
+                                        "name": "Identifier",
+                                        "src": "2926:7:42"
+                                      }
+                                    ],
+                                    "id": 7110,
+                                    "name": "MemberAccess",
+                                    "src": "2926:28:42"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "arguments": [
+                                        null
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "isStructConstructorCall": false,
+                                      "lValueRequested": false,
+                                      "names": [
+                                        null
+                                      ],
+                                      "tryCall": false,
+                                      "type": "address",
+                                      "type_conversion": false
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": [
+                                            null
+                                          ],
+                                          "overloadedDeclarations": [
+                                            7071
+                                          ],
+                                          "referencedDeclaration": 7071,
+                                          "type": "function () view returns (address)",
+                                          "value": "_implementation"
+                                        },
+                                        "id": 7111,
+                                        "name": "Identifier",
+                                        "src": "2955:15:42"
+                                      }
+                                    ],
+                                    "id": 7112,
+                                    "name": "FunctionCall",
+                                    "src": "2955:17:42"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 7076,
+                                      "type": "bytes memory",
+                                      "value": "data"
+                                    },
+                                    "id": 7113,
+                                    "name": "Identifier",
+                                    "src": "2974:4:42"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "hexvalue": "426561636f6e50726f78793a2066756e6374696f6e2063616c6c206661696c6564",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "token": "string",
+                                      "type": "literal_string \"BeaconProxy: function call failed\"",
+                                      "value": "BeaconProxy: function call failed"
+                                    },
+                                    "id": 7114,
+                                    "name": "Literal",
+                                    "src": "2980:35:42"
+                                  }
+                                ],
+                                "id": 7115,
+                                "name": "FunctionCall",
+                                "src": "2926:90:42"
+                              }
+                            ],
+                            "id": 7116,
+                            "name": "ExpressionStatement",
+                            "src": "2926:90:42"
+                          }
+                        ],
+                        "id": 7117,
+                        "name": "Block",
+                        "src": "2912:115:42"
+                      }
+                    ],
+                    "id": 7118,
+                    "name": "IfStatement",
+                    "src": "2891:136:42"
+                  }
+                ],
+                "id": 7119,
+                "name": "Block",
+                "src": "2443:590:42"
+              }
+            ],
+            "id": 7120,
+            "name": "FunctionDefinition",
+            "src": "2371:662:42"
+          }
+        ],
+        "id": 7121,
+        "name": "ContractDefinition",
+        "src": "498:2537:42"
+      }
+    ],
+    "id": 7122,
+    "name": "SourceUnit",
+    "src": "33:3003:42"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.6+commit.7338295f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-07-04T17:19:50.335Z",
+  "devdoc": {
+    "details": "This contract implements a proxy that gets the implementation address for each call from a {UpgradeableBeacon}. The beacon address is stored in storage slot `uint256(keccak256('eip1967.proxy.beacon')) - 1`, so that it doesn't conflict with the storage layout of the implementation behind the proxy. _Available since v3.4._",
+    "kind": "dev",
+    "methods": {
+      "constructor": {
+        "details": "Initializes the proxy with `beacon`. If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon. This will typically be an encoded function call, and allows initializating the storage of the proxy like a Solidity constructor. Requirements: - `beacon` must be a contract with the interface {IBeacon}."
+      }
+    },
+    "stateVariables": {
+      "_BEACON_SLOT": {
+        "details": "The storage slot of the UpgradeableBeacon contract which defines the implementation for this proxy. This is bytes32(uint256(keccak256('eip1967.proxy.beacon')) - 1)) and is validated in the constructor."
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

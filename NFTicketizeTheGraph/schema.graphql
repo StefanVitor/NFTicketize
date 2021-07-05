@@ -1,0 +1,23 @@
+type Event @entity {
+  id: ID!
+  creator: Bytes!
+  startDate: BigInt!
+  metadataIpfsCid: String!
+}
+
+type TicketCategory @entity {
+  id: ID!
+  eventId: BigInt!
+  currentMintTickets: BigInt!
+  maxTickets: BigInt!
+  ticketPrice: BigInt!
+  resellTicketValue: BigInt!
+  metadataIpfsCid: String!
+}
+
+type Ticket @entity {
+  id: ID!
+  eventId: BigInt!
+  ticketCategoryId: BigInt!
+  forBid: BigInt!
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Nfticketizegraph",
+  "version": "0.1.0",
+  "scripts": {
+    "build-contract": "solc contracts/Gravity.sol --abi -o abis --overwrite && solc contracts/Gravity.sol --bin -o bin --overwrite",
+    "create": "graph create StefanVitor/Nfticketizegraph --node https://api.thegraph.com/deploy/",
+    "create-local": "graph create StefanVitor/Nfticketizegraph --node http://127.0.0.1:8020",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy StefanVitor/Nfticketizegraph --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy-local": "graph deploy StefanVitor/Nfticketizegraph --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.20.1",
+    "@graphprotocol/graph-ts": "^0.20.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.4.1-solc-0.7-2",
+    "@openzeppelin/contracts-upgradeable": "^3.4.0",
+    "@rarible/asset": "^0.1.0",
+    "@rarible/exchange-interfaces": "^0.2.0",
+    "@rarible/lazy-mint": "^0.4.0",
+    "@rarible/mint-and-transfer": "^0.0.1",
+    "@rarible/royalties-upgradeable": "^0.6.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "root": "github:rariblecom/protocol-contracts",
+    "truffle": "^5.0.4",
+    "truffle-contract": "^4.0.5",
+    "truffle-hdwallet-provider": "^1.0.17"
+  }
+}
