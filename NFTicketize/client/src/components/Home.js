@@ -59,6 +59,17 @@ const uint8ArrayToString = require('uint8arrays/to-string');
 const uint8ArrayConcat = require('uint8arrays/concat');
 const all = require('it-all');
 
+// Function to compare (order) post per created date
+const compareEvents = function( a, b ) {
+  if ( new Date(b.start_date)> new Date(a.start_date) ){
+    return -1;
+  }
+  if ( new Date(b.start_date) < new Date(a.start_date) ){
+    return 1;
+  }
+  return 0;
+};
+
 function Home(props) {  
   let history = useHistory();
   let ipfs = props.ipfs;
@@ -85,18 +96,20 @@ function Home(props) {
         // Get details about event from IPFS
         const ipfsData = await getEventsDetail(events[counter].metadataIpfsCid);
         if (ipfsData) {
-          data.push({
-            key: parseInt(events[counter].id),
-            name: ipfsData.name,
-            description: ipfsData.description,
-            type: ipfsData.type,
-            location: ipfsData.location,
-            location_address: ipfsData.locationAddress,
-            start_date: ipfsData.startDate
-          });
+          if (new Date() <= new Date(parseInt(events[counter].startDate) * 1000)) {
+            data.push({
+              key: parseInt(events[counter].id),
+              name: ipfsData.name,
+              description: ipfsData.description,
+              type: ipfsData.type,
+              location: ipfsData.location,
+              location_address: ipfsData.locationAddress,
+              start_date: new Date(parseInt(events[counter].startDate) * 1000).toLocaleString()
+            });
+          }
         }
       }
-      return data;
+      return data.sort(compareEvents);
     }
     return [];
   }
@@ -151,6 +164,10 @@ function Home(props) {
                         </Typography>
                         <Typography variant="body2" component="p" color="textSecondary">
                         #Location address (type) - {event.location_address}
+                        <br />
+                        </Typography>
+                        <Typography variant="body2" component="p" color="textSecondary">
+                        #Start date - {event.start_date}
                         <br />
                         </Typography>
                       </CardContent>
