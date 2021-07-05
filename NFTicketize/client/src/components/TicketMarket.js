@@ -249,6 +249,7 @@ function TicketMarketDetail({onReloadList, onSetOverlay, onSetSnackBarMessage, e
         var resultBid = {};
         var make = bids[counter].make;
         resultBid.hash = bids[counter].hash;
+        resultBid.order = bids[counter];
         resultBid.type = make.assetType.assetClass;
         resultBid.value = make.value;
         resultBid.date = new Date(Date.parse(bids[counter].createdAt)).toLocaleString(); 
@@ -351,31 +352,18 @@ function TicketMarketDetail({onReloadList, onSetOverlay, onSetSnackBarMessage, e
     var order = null;
 
     console.log(bid);
-    /*
-    if (bidType === 0) {
-      if (priceForBid == null || priceForBid === 0) {
-        setPriceForBidValidation(true);
-        return;
-      }
 
-      setBidDialogOpen(false);
-      onSetOverlay(true);
+    var bidType = bid.order.make.assetType.assetClass;
 
-      const priceForBidWei = ethers.utils.parseEther(priceForBid);
-      const signer = Provider.getSigner()
-      const address = await signer.getAddress();
-      order = CreateBidOrderForCurrency(address, EnvConstant.contractAddress, tokenForDialog, priceForBidWei.toString());
-    } else if (bidType === "ERC721" || bidType == "") {
-      if (ticketForTradeOffer == null || ticketForTradeOffer === -1) {
-          return;
-      }
-
+    if (bidType === "ERC721" || bidType === "ERC721_LAZY") {
+      var makeToken = bid.order.make.assetType.tokenId;
+      var takeToken = bid.order.take.assetType.tokenId;
       setBidDialogOpen(false);
       onSetOverlay(true);
 
       const signer = Provider.getSigner()
       const address = await signer.getAddress();
-      order = CreateBidOrderForTrade(address, EnvConstant.contractAddress, tokenForDialog, ticketForTradeOffer);
+      order = CreateBidOrderForTrade(address, EnvConstant.contractAddress, makeToken, takeToken);
     }
 
     if (order !== null) {
@@ -390,7 +378,7 @@ function TicketMarketDetail({onReloadList, onSetOverlay, onSetSnackBarMessage, e
     }
 
     onReloadList(true);
-    onSetOverlay(false);*/
+    onSetOverlay(false);
   }
 
   const cancelBidOffer = async(bid) => {
