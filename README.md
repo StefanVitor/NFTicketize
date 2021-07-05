@@ -6,7 +6,7 @@
   <h3 align="center">NFTicketize</h3>
 
   <p align="center">
-    NFTicketize is app for create events (Concerts,  Conferences, Festivals, Seminars, Sports, etc), create ticket categories for that events, buy tickets that are created as NFT's, and trade that tickets for CryptoCurrency, for some other ticket, or for some other NFT.
+    NFTicketize is app for create events (Concerts,  Conferences, Festivals, Seminars, Sports, etc), create ticket categories for that events, buy tickets that are created as NFT's, and trade that tickets for cryptocurrency, for some other ticket, or for some other NFT.
     <br />
   <a href="https://www.youtube.com/watch?v=eGvdrB52n2o"><strong>Application Demo</strong></a>
     <br />
@@ -44,16 +44,23 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-* Login, Registration and Lost password
+* Home (all events) - display all events for which users could buy tickets. With button "Detail" user could open form with detail information about that event.
 
-![Screenshot_2021-05-30-11-09-37](https://user-images.githubusercontent.com/25621259/120105410-09775e00-c159-11eb-8308-4766890a87e7.png)
-![Screenshot_2021-05-30-11-09-41](https://user-images.githubusercontent.com/25621259/120105411-0a0ff480-c159-11eb-9c94-a8371012af36.png)
-![Screenshot_2021-05-30-11-09-49](https://user-images.githubusercontent.com/25621259/120105412-0a0ff480-c159-11eb-8af8-f0dd708bc4b4.png)
+![1](https://user-images.githubusercontent.com/25621259/124457276-e8bfab00-dd8b-11eb-998c-e29a74006b68.png)
 
 
-* All events
+* My tickets - display all tickets that user owns
 
-![Screenshot_2021-05-30-11-10-42](https://user-images.githubusercontent.com/25621259/120105445-33c91b80-c159-11eb-949f-7f78ee7e8b65.png)
+
+* My events - events that logged user created
+  
+  - Display
+  
+![2](https://user-images.githubusercontent.com/25621259/124457332-f9702100-dd8b-11eb-9ac3-69e7139a139c.png)
+
+  - Button "New event" (create new event)
+  
+ ![3](https://user-images.githubusercontent.com/25621259/124459043-068e0f80-dd8e-11eb-8c5c-76629628ae8c.png)
 
 
 * Create (modified) event - full screen
