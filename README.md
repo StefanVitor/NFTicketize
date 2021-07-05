@@ -149,7 +149,7 @@ This project is created for ETHGlobal hackathon "HackMoney 2021". For this proje
 
 From this sponsor, I used API from https://api-reference.rarible.com/ , and also smart contract "NFTicketize.sol" is designed that support this API. Functions that I used:
 
-* Lazy mint (with all additions such as ipfs uri, royalties, etc) with generate ID, so ticket (NFT) could see from Rarible portal (with all informations). Also, for image, I generate picture with informations about event name, ticket category and ticket id, but in future, this could be some form of electronic ticket 
+* Lazy mint (with all additions such as IPFS uri, royalties, etc) with generate ID, so ticket (NFT) could see from Rarible portal (with all informations). Also, for image, I generate image with informations about event name, ticket category and ticket id, but in future, this could be some form of electronic ticket 
 
 ![19](https://user-images.githubusercontent.com/25621259/124475162-b15bf900-dda1-11eb-94fd-ee23ac80ee3a.png)
 
@@ -209,33 +209,34 @@ This project is built with:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+They are two projects on main directory: NFTicketize and NFTicketizeTheGraph.
+
+- NFTticketize is main project with front end and communication with all technologies that are used in this project
+- NFTicketizeTheGraph is Subgraph project
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/StefanVitor/CCEventize.git
+   git clone https://github.com/StefanVitor/NFTicketize.git
    ```
-2. Create project on Firebas and import google-services.json on app directory
+2. Fill informations about keys on NFTicketize\client\src\const.js (for this file, you could contact me, because it contains private API keys)
 
-3. Get API key from RAMP Network
+3. Add truffle-config.js in root directories (root for NFTicketize and NFTicketizeTheGraph) if you want to truffle compile or migrate contracts
 
+4. Go to NFTicketize/client 
+
+5. npm start
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-* Integration with smart contracts, so informations about who buy ticket, how many tickets are sold or how many tickets are available, are stored on blockchain
-
-* Development of new functionalities, such as print tickets as pdf or QR code, different ticket types (different ticket price for same event)
+* Development of new functionalities, such as electronic tickets as NFT image
 
 * Application design
 
 * Test cases
-
-
 
 
 <!-- CONTRIBUTING -->
@@ -246,7 +247,6 @@ To get a local copy up and running follow these simple example steps.
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
 
 
 <!-- LICENSE -->
@@ -261,13 +261,13 @@ Distributed under the GNU General Public License v3.0. See `LICENSE` for more in
 
 Stefan Vitorovic - [@StefanVitorovic](https://twitter.com/StefanVitorovic) - vitorovicstefan@gmail.com
 
-Project Link: [https://github.com/StefanVitor/CCEventize](https://github.com/StefanVitor/CCEventize)
+Project Link: [https://github.com/StefanVitor/NFTicketize](https://github.com/StefanVitor/NFTicketize)
 
 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [Gitcoin](https://gitcoin.co/)
-* [RAMP Network](https://ramp.network/)
+* [ETHGlobal](https://ethglobal.co/)
+* [Rarible](https://rarible.org/) - guys, sorry for all stupid questions :) 
 
 
