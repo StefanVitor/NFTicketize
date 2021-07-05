@@ -199,11 +199,11 @@ This project is built with:
 * [Solidity](https://soliditylang.org/)
 * [Rarible](https://rarible.org/)
 * [The Graph](https://thegraph.com/)
-* [MetaMask] (https://metamask.io/)
-* [IPFS] (https:///ipfs.io)
-* [Pinata] (https://pinata.cloud/)
-* [Truffle and Ganache] (https://www.trufflesuite.com/)
-* [Ethers.js] (https://docs.ethers.io/v5/)
+* [MetaMask](https://metamask.io/)
+* [IPFS](https:///ipfs.io)
+* [Pinata](https://pinata.cloud/)
+* [Truffle and Ganache](https://www.trufflesuite.com/)
+* [Ethers.js](https://docs.ethers.io/v5/)
 * [Firebase](https://firebase.google.com/)
 
 <!-- GETTING STARTED -->
