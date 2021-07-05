@@ -80,7 +80,8 @@ async function getMyTicketsFilter(_ticketsDataItems, _eventId) {
 async function getTicketsForSellFilter(_ticketsDataItems, _eventId, _address) {
     var data = [];
     for(var counter = 0; counter < _ticketsDataItems.length; counter++) {
-        if (_ticketsDataItems[counter].maker.toLowerCase() !== _address.toLowerCase()) {
+        if (_ticketsDataItems[counter].maker.toLowerCase() !== _address.toLowerCase() &&
+        _ticketsDataItems[counter].take.assetType.assetClass === "ETH") {
             if (_eventId == null) {
                 data.push(_ticketsDataItems[counter]);
             } else {

@@ -39,17 +39,23 @@ function MyTickets() {
 
         //Set sell button, cancel_sell button and resell_value field 
         const ordersByItem = await GetSellOrdersByItem(obj.tokenId, null);
+        var correctOrder = null;
+        for (var innerCounter = 0; innerCounter < ordersByItem.length; innerCounter++) {
+          if (ordersByItem[innerCounter].take.assetType.assetClass === "ETH") {
+            correctOrder = ordersByItem[innerCounter];
+          }
+        }
         //If there is order in list, user could cancel sell(cancel that order), otherwise, user could sell (set order in list)
-        if(ordersByItem.length > 0) {
+        if(correctOrder != null) {
           obj.resell_value_flag = true;
-          var price = ordersByItem[0].take.value;
+          var price = correctOrder.take.value;
           obj.resell_value = ethers.utils.formatEther(price).toString();
-          if (ordersByItem[0].makePriceUsd != null) {
-            obj.price_in_usd = ordersByItem[0].makePriceUsd.toFixed(2);
+          if (correctOrder.makePriceUsd != null) {
+            obj.price_in_usd = correctOrder.makePriceUsd.toFixed(2);
           } else {
             obj.price_in_usd = 0;
           }
-          obj.order = ordersByItem[0];
+          obj.order = correctOrder;
         }
         else {
           obj.resell_value_flag = false;

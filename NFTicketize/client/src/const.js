@@ -1,7 +1,5 @@
 export const EnvConstant = {
-    //contractAddress: "0x645C82a62D227fDac9b5651124a2f311309ec1Ae",
     contractAddress: "0x1E59293Db17204613F5f3A0a1f5e6be2F17C2d54",
-    //theGraphAPIUrl: "http://127.0.0.1:8000/subgraphs/name/StefanVitor/NFTicketize-subgraph",
     theGraphAPIUrl: "https://api.thegraph.com/subgraphs/name/stefanvitor/nfticketizegraph",
     pinataURL: "https://api.pinata.cloud/pinning",
     pinataHeader: { headers: {

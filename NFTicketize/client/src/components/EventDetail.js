@@ -420,7 +420,7 @@ function ButtonsBox({onReloadList, onSetOverlay, onSetSnackBarMessage}) {
   const [categoryName, setCategoryName] = React.useState("");
   const [categoryNameValidation, setCategoryNameValidation] = React.useState(false);
   const [description, setDescription] = React.useState("");
-  const [maxSubscriber, setMaxSubscriber] = React.useState(-1);
+  const [maxTicket, setMaxTicket] = React.useState(-1);
   const [price, setPrice] = React.useState(0);
   const [priceValidation, setPriceValidation] = React.useState(false);
   const [resellFeeValue, setResellFeeValue] = React.useState(0);
@@ -430,7 +430,7 @@ function ButtonsBox({onReloadList, onSetOverlay, onSetSnackBarMessage}) {
   const eventKey = location.state.eventKey;
 
   // Create new tier button
-  const createNewTicketCategory = async (eventKey, categoryName, description, maxSubscriber,
+  const createNewTicketCategory = async (eventKey, categoryName, description, maxTicket,
     price, resellFeeValue) => {
 
     onSetOverlay(true);
@@ -449,11 +449,11 @@ function ButtonsBox({onReloadList, onSetOverlay, onSetSnackBarMessage}) {
     const nftTicketizeContractWithSigner = nftTicketizeContract.connect(signer);
     try {
       var _eventKey = parseInt(eventKey);
-      var _maxSubscriber = maxSubscriber;
+      var _maxTicket = maxTicket;
       var _parsePrice = ethers.utils.parseEther(price);
       var _resellFeeValue = parseInt(resellFeeValue);
 
-      const transactionDetail = await nftTicketizeContractWithSigner.createTicketCategory(_eventKey, _maxSubscriber, _parsePrice, _resellFeeValue, cid.string);
+      const transactionDetail = await nftTicketizeContractWithSigner.createTicketCategory(_eventKey, _maxTicket, _parsePrice, _resellFeeValue, cid.string);
       await ipfs.pin.add(cid.string);
       
       setOpen(false);
@@ -507,7 +507,7 @@ function ButtonsBox({onReloadList, onSetOverlay, onSetSnackBarMessage}) {
     }
 
     // Call create new tier procedure
-    createNewTicketCategory(eventKey, categoryName, description, maxSubscriber,
+    createNewTicketCategory(eventKey, categoryName, description, maxTicket,
       price, resellFeeValue);
     setOpen(false);
   };
@@ -549,10 +549,10 @@ function ButtonsBox({onReloadList, onSetOverlay, onSetSnackBarMessage}) {
               <TextField
                 margin="dense"
                 id="total_number"
-                label="Total number of limited tokens(max subscriber)?"
+                label="Total number of limited tokens(max tickets)?"
                 fullWidth
                 onChange={event => {
-                  setMaxSubscriber(event.target.value);
+                  setMaxTicket(event.target.value);
                 }}
                 type="number"
                 min="1"
