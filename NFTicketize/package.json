@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.4.1-solc-0.7-2",
+    "@rarible/lazy-mint": "^0.4.0",
+    "@rarible/mint-and-transfer": "^0.0.1",
+    "@rarible/royalties-upgradeable": "^0.6.1",
+    "truffle-hdwallet-provider": "^1.0.17"
+  }
+}
