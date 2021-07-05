@@ -8,7 +8,7 @@
   <p align="center">
     NFTicketize is app for create events (Concerts,  Conferences, Festivals, Seminars, Sports, etc), create ticket categories for that events, buy tickets that are created as NFT's, and trade that tickets for cryptocurrency, for some other ticket, or for some other NFT.
     <br />
-  <a href="https://www.youtube.com/watch?v=eGvdrB52n2o"><strong>Application Demo</strong></a>
+  <a href="https://www.youtube.com/watch?v=7-aY4wgnRFg&feature=youtu.be"><strong>Application Demo</strong></a>
     <br />
   </p>
 </p>
