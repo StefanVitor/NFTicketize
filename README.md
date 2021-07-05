@@ -19,12 +19,17 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="#about-the-project">About The Project</a></li>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#hackmoney-2021">HackMoney 2021</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#rarible">Rarible (Rarible Protocol)</a></li>
+        <li><a href="#the-graph">The Graph (Subgraph project and query the graph)</a></li>
+        <li><a href="#consensys">Consensys (Metamask)</a></li>
+        <li><a href="#protocol-labs">Protocol Labs (IPFS and Pinata)</a></li>
       </ul>
     </li>
+    <li><a href="#built-with">Built With</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -50,6 +55,8 @@
 
 
 * My tickets - display all tickets that user owns
+
+![18](https://user-images.githubusercontent.com/25621259/124473094-30036700-dd9f-11eb-9eb4-8e118b8fdf1a.png)
 
 
 * My events - events that logged user created
@@ -84,7 +91,7 @@
 
 * Event detail - from others users view - tickets block (set for sell)
 
-  With clcik on button "For Sell" user set price for how much will sold that ticket
+  With clcik on button "For sell" user set price for how much will sold that ticket
   
 ![8](https://user-images.githubusercontent.com/25621259/124467003-8d93b580-dd97-11eb-8a81-40d6a0fd8035.png)
 
@@ -93,15 +100,93 @@
   With click on button "Cancel sell" user pulls that ticket from market
  
 
-* Event detail - from others users view - tickets block (set for bid)
+* Event detail - from others users view - tickets block (set for bid and set bid)
+
+  With click on button "For bid" user put that ticket on market, so he expect from other users to give it to him different offers
+  
+  With click on button "Cancel for bid" user pull that ticket from market
+
+![10](https://user-images.githubusercontent.com/25621259/124467633-67bae080-dd98-11eb-8c93-706a50f3e3c0.png)
+
+  Other users could bid for that ticket from view "For bids". Users could bid for currency (WETH for now), or for other tickets that he owns.
+  
+![13](https://user-images.githubusercontent.com/25621259/124468739-caf94280-dd99-11eb-8d77-b8a108e884a9.png)
+
+![14](https://user-images.githubusercontent.com/25621259/124468741-cb91d900-dd99-11eb-93ba-948226a6fd91.png)
+
+  When other users offers bids for ticket, user who owns that ticket could accept appropriate bid or decline
+  
+![15](https://user-images.githubusercontent.com/25621259/124469140-46f38a80-dd9a-11eb-8637-cc3fbcd72395.png)
+
+
+* Event detail - from others views - tickets block ("For sell" view)
+
+  In for sell view users could buy tickets for fixed amount
+  
+![16](https://user-images.githubusercontent.com/25621259/124471904-c040ac80-dd9d-11eb-9fa2-95eea664e804.png)
+  
+
+* Ticket market - similar view as "Ticket market" on "Event detail" form, except, this is for all events and all tickets in application
+
+![17](https://user-images.githubusercontent.com/25621259/124472891-f2064300-dd9e-11eb-9abe-6946e40567c3.png)
+
+* Account - basic informations about user that are stored on firebase, and connect with MetaMask address
+ 
+![20](https://user-images.githubusercontent.com/25621259/124477475-5d064880-dda4-11eb-8f28-afb9813dd049.png)
 
 
 
-* My tickets display
+## HackMoney 2021
 
-![Screenshot_2021-05-30-15-45-11](https://user-images.githubusercontent.com/25621259/120106742-8eb14180-c15e-11eb-85ab-099a57f9e5dd.png)
+This project is created for ETHGlobal hackathon "HackMoney 2021". For this project, they are used technologies and tools from four different sponsors for this hackathon:
+- Rarible (Rarible Protocol)
+- The Graph (Subgraph project and query the graph)
+- Consensys (Metamask)
+- Protocol Labs (IPFS and Pinata)
 
-### Built With
+
+### Rarible
+
+From this sponsor, I used API from https://api-reference.rarible.com/ , and also smart contract "NFTicketize.sol" is designed that support this API. Functions that I used:
+
+* Lazy mint (with all additions such as ipfs uri, royalties, etc) with generate ID, so ticket (NFT) could see from Rarible portal (with all informations). Also, for image, I generate picture with informations about event name, ticket category and ticket id, but in future, this could be some form of electronic ticket 
+
+![19](https://user-images.githubusercontent.com/25621259/124475162-b15bf900-dda1-11eb-94fd-ee23ac80ee3a.png)
+
+* Create a sell order
+
+* Accepting order
+
+* Create a bid order
+
+* Prepare TX for order
+
+* Different types of GET call from API (getOrderByHash, getSellOrdersByItem, getSellOrdersByCollection, getBidsByItem, getItemsByCreator, getItemsByCollection...)
+
+
+### The Graph
+
+For this sponsor, I create separate project NFTicketizeTheGraph to define subgraph. This project has three entities (Events, TicketCategories and Tickets), which I query in main project. 
+
+In main project, all forms in some way (or in multiple ways) used graph queries.
+
+
+### Consensys
+
+MetaMask is core of this application, so by changing account, the data and app design are automatically adjusted to the new account. 
+
+Of atypical functions, they are integration in some basic way with Firebase Functions, so token authorization for Firebase depends from metamask address.
+
+From typical functions, it has been used different interactions with smart contract and signatures.
+- Basic smart function call
+- Function call with sent value (sending transactions)
+- Signing data with "eth_signTypedData_v4" 
+
+
+### Protocol Labs
+
+
+## Built With
 
 This project is built with:
 * [Kotlin](https://kotlinlang.org/)
