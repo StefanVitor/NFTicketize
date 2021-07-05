@@ -1,7 +1,6 @@
 graph-node/
 nfticketize-graph/
-nft-ticketize/
-nft-ticketize-old/
+
 scaffold-eth/
 sign-typed-data/
 Slike za dokumentaciju/
@@ -11,3 +10,7 @@ NNfticketizegraph/
 
 #.history folder
 NFTicketize/.history
+
+nft-ticketize/
+
+nft-ticketize-old/
