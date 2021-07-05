@@ -1,9 +1,0 @@
-{
-  "database": {
-    "rules": "database.rules.json"
-  },
-  "functions": {
-    "predeploy": [],
-    "source": "functions"
-  }
-}
