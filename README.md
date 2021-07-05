@@ -232,9 +232,15 @@ They are two projects on main directory: NFTicketize and NFTicketizeTheGraph.
 <!-- ROADMAP -->
 ## Roadmap
 
+* Trade with other NFT's 
+
+* Buy and resell ticket for different token
+
 * Development of new functionalities, such as electronic tickets as NFT image
 
 * Application design
+
+* Deploy on mainnet
 
 * Test cases
 
