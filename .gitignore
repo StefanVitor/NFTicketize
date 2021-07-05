@@ -17,3 +17,4 @@ Primeri.txt
 NFTicketize/client/src/const.js
 NFTicketize/truffle-config.js
 NFTicketizeTheGraph/truffle-config.js
+NFTicketize/client/functions/serviceAccountKey.json
