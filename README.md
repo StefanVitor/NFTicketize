@@ -55,39 +55,46 @@
 * My events - events that logged user created
   
   - Display
+  - Button "New event" (create new event)
   
 ![2](https://user-images.githubusercontent.com/25621259/124457332-f9702100-dd8b-11eb-9ac3-69e7139a139c.png)
 
-  - Button "New event" (create new event)
+![3](https://user-images.githubusercontent.com/25621259/124459043-068e0f80-dd8e-11eb-8c5c-76629628ae8c.png)
+
+
+* Event detail - from event creator view 
+
+  - Display
+  - Button "New ticket category"
+    - Field "Resell fee for event owner" shows how much percent for every resell for tickets in that ticket category will event creator get
+
+![4](https://user-images.githubusercontent.com/25621259/124464327-5bcd1f80-dd94-11eb-8d3b-07ad888bd0c2.png)
+
+![5](https://user-images.githubusercontent.com/25621259/124465253-7e136d00-dd95-11eb-86e2-2e419ee6112c.png)
+
+
+* Event detail - from other users view (buy ticket from event host)
+
+  With click on button "Buy" for the selected category, users could buy tickets for that event and in that category
+
+![6](https://user-images.githubusercontent.com/25621259/124465774-16a9ed00-dd96-11eb-8ab1-c6d5ff213636.png)
+
+![7](https://user-images.githubusercontent.com/25621259/124465784-190c4700-dd96-11eb-9c5c-ddf939584f2f.png)
+
+
+* Event detail - from others users view - tickets block (set for sell)
+
+  With clcik on button "For Sell" user set price for how much will sold that ticket
   
- ![3](https://user-images.githubusercontent.com/25621259/124459043-068e0f80-dd8e-11eb-8c5c-76629628ae8c.png)
+![8](https://user-images.githubusercontent.com/25621259/124467003-8d93b580-dd97-11eb-8a81-40d6a0fd8035.png)
 
+![9](https://user-images.githubusercontent.com/25621259/124467020-93899680-dd97-11eb-9a84-30ab5caef0f0.png)
 
-* Create (modified) event - full screen
+  With click on button "Cancel sell" user pulls that ticket from market
+ 
 
-![Screenshot_2021-05-30-15-21-35](https://user-images.githubusercontent.com/25621259/120106029-b652da80-c15b-11eb-8bf8-ad3db8b7f629.png)
-![Screenshot_2021-05-30-15-24-38](https://user-images.githubusercontent.com/25621259/120106030-b6eb7100-c15b-11eb-9c9c-c750362c45e5.png)
+* Event detail - from others users view - tickets block (set for bid)
 
-
-* Create (modified) event - Integration with RAMP Network, so that assets (cryptocurrencies) from RAMP network are displayed in application as possible cryptocurrency for payment
-
-![Screenshot_2021-05-30-15-25-33](https://user-images.githubusercontent.com/25621259/120106256-a1c31200-c15c-11eb-8461-46ec6ee6e554.png)
-
-
-* Create (modified) event - Integration with RAMP Network, so that minimum ticket price cannot be lower than minimum puchase amount for selected cryptocurrency
-
-![Screenshot_2021-05-30-15-22-14](https://user-images.githubusercontent.com/25621259/120106326-e0f16300-c15c-11eb-95b3-891933ad0e18.png)
-
-
-* Buy ticket - Integration with RAMP Network
-
-![Screenshot_2021-05-30-15-40-53](https://user-images.githubusercontent.com/25621259/120106666-498d0f80-c15e-11eb-9542-6827cbc158ee.png)
-![Screenshot_2021-05-30-15-41-14](https://user-images.githubusercontent.com/25621259/120106668-4a25a600-c15e-11eb-8c43-44078f4b7db2.png)
-
-
-* Menu
-
-![Screenshot_2021-05-30-15-43-48](https://user-images.githubusercontent.com/25621259/120106729-8527d980-c15e-11eb-8555-c7d2d29b5c9a.png)
 
 
 * My tickets display
